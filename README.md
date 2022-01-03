@@ -1,7 +1,16 @@
-# Sparta Global Reference Docs
-Material covered at Sparta Global Academy
+<div id="top"></div>
+<div align="center">
+   <a href="https://github.com/KonradDlugosz/SpartaGlobalDocs">
+    <img src="images/info.png" alt="Logo" width="150" height="150">
+  </a>
+    <h1 align= "center">Sparta Global Revision Docs</h1>
+</div>
+
+*Material covered at Sparta Global Academy*
 
 
+
+##### Index: 
 
 |  #   | Topics                                              |
 | :--: | --------------------------------------------------- |
