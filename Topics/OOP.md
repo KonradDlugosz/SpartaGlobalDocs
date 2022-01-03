@@ -853,11 +853,11 @@
 
 18. #### Error handling exceptions
 
-    All Exceptions apart from RUntime are checked/caught 
+    All Exceptions apart from runtime are checked/caught 
 
     RuntimeExceptions are uncaught/unchecked
 
-    ![](images/exeptions.PNG)
+    ![](/images/exeptions.PNG)
 
 19. #### Log4j
 
