@@ -73,7 +73,7 @@
 * **/etc/hosts** : contains local dns 
 * access remote server using SSH:
 * **ssh [username]@[server ip address]** : connect to ssh server
-* ![](images/ssh.PNG)
+* ![](/images/ssh.PNG)
 
 ##### Linux Scripting 
 
