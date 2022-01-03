@@ -5,7 +5,7 @@
 1. [Threading](#Threading) 
 2. [Shared state](#Shared-state)
 3. [SOLID](#SOLID)
-4. [Distributed systems](#Distributed systems) 
+4. [Distributed systems](#Distributed-systems) 
 5. [Horizontal scaling](#horizontal-scaling) 
 6. [CAP theorem](#CAP-theorem)
 7. [Algorithms and data structures](#Algorithms-and-data-structures)
