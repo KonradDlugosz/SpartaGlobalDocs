@@ -1,13 +1,13 @@
 ## Linux
 
-##### Linux Distribtuion familes
+##### Linux Distribution families
 
-* Debian : ubuntu, mint, and kali linux
-* Red Hat Enterprice linux: CentOS and Fedora
+* Debian : ubuntu, mint, and kali Linux
+* Red Hat Enterprise Linux: CentOS and Fedora
 * SUSE: OpenSUSE
-* Arch linux: LinHES and Manjaro
+* Arch Linux: LinHES and Manjaro
 
-##### Linux Distribtuions: 
+##### Linux Distributions: 
 
 * Android (mobile)
 

@@ -40,12 +40,13 @@
       * Technology : software and hardware based solutions 
 
 3. **Cybersecurity colors** 
+   
    1. Blue Team (The Defenders) : responsible for defense of security, damage control and incident response. 
    2. Red Team (The Breakers/Attackers) : commissioned to perform "ethical hacking" on an organization.
    3. White Team (The Admins) : responsible for refereeing an engagement between a Red Team and mock attackers and Blu Team of actual defenders of their enterprise's use on information systems.  
    4. Yellow Team (The Builders) : responsible for developing the security system of an organization. 
    5. Many more .... Depends on context and organization. 
-
+   
 4. **Hackers**
    1. Black Hat Hackers - Attackers 
    2. White Hat Hackers - Ethical hackers, hacking with permission.
@@ -55,12 +56,14 @@
    1. White box testing : All information on the system.
    2. Black box testing : No information on the system. 
    3. Grey box testing : Some information. eg network design. 
+   
 6. **Essential Terms**
    1. Asset: An asset is what we trying to protect.
    2. Vulnerability : A vulnerability is a weakness or gap in our protection efforts.
    3. Exploit : The way how hackers leverage vulnerabilities. 
    4. Threat : A threat is what we are trying to protect against.
    5. Risk : the intersection of assets, threats and vulnerabilities. 
+   
 7. **Causes of Vulnerabilities**
    1. Design and development errors 
    2. Poor system configuration 
@@ -112,6 +115,24 @@
     19. Spear- phishing : sending emails to targeted individual that could contain an attachment with malicious software
     20. Deploying a botnet : to deliver DDoS attack
     21. Subverting the supply chain : to attack equipment or software being delivered to the organization. 
+    
+11. **Cyber Threat Surface** 
+
+    The attack surface of a software environment is the sum of the different points where an unauthorized user can try to enter data to or extract data from an environment. Keeping the attack surface as small as possible is a basic security measure.
+
+12. **Cyber Kill Chain**
+
+    1. Reconnaissance : finding all information about the target
+    2. Weaponization : Write malware to leverage the vulnerability 
+    3. Delivery : deliver malware via web, email, USB etc.
+    4. Exploitation : exploiting vulnerability to execute code
+    5. Installation : installing the malware on the asset
+    6. Command and control (C2) : command channel for remote manipulation 
+    7. Actions on objectives : with access, accomplish your goal
+
+13. **Securing during development**
+
+    Moving to the left in cybersecurity means that you should apply cybersecurity from beginning of product development. 
 
 
 
