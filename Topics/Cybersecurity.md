@@ -105,6 +105,13 @@
     12. Data manipulation : aims to change data 
     13. Data destruction : attempts to delete data 
     14. Main in the middle attack : alters communication between two parties who believe they are communication with each other.
+    15. Rogue software : malware disguised as real software 
+    16. Unpatched software 
+    17. Natural disaster
+    18. Water holing : fake website 
+    19. Spear- phishing : sending emails to targeted individual that could contain an attachment with malicious software
+    20. Deploying a botnet : to deliver DDoS attack
+    21. Subverting the supply chain : to attack equipment or software being delivered to the organization. 
 
 
 
