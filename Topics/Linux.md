@@ -36,14 +36,14 @@
 ##### Basic: 
 
 * **locate [filename]** : if doesn't show update index with **sudo updatedb**
-
 * **grep** : search plain text data set for lines that match regex. Can be used with pipeline **|** 
-
 * **wc [file path] ** : word count 
-
 * **wget** [URL] : retrieves content from web servers
-
 * **cut -d: -f3 /etc/group | sort -n** : *cut* means extract sections from each line of input and sort command sorts the output.
+* **type [command]** : information 
+* **which [command]** : locate command
+* **whereis [command]** : which package it exists  
+*  **| tee -a [file name ]** : print and add to file pipeline 
 
 ##### **Standard streams:** 
 
