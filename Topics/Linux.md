@@ -11,7 +11,7 @@
 
 * Android (mobile)
 
-* Red Hat Enterpirse linux: CentOS 
+* Red Hat Enterprise Linux: CentOS 
 
 * SUSE: OpenmSUSE
 
@@ -19,7 +19,7 @@
 
 * Kali Linux (security)
 
-* Raspbian (mini archtectures)
+* Raspbian (mini architectures)
 
 * Ubuntu (all-around)
 
@@ -27,7 +27,7 @@
 
 * Virtual machines
 
-* Clound computing
+* Cloud computing
 
   
 
@@ -55,9 +55,9 @@
 
 ##### Archive 
 
-* **tar xzf [file name]** : unpack archive, x: extract, z: comprest or zipped, f: file name follows.
+* **tar xzf [file name]** : unpack archive, x: extract, z: compress or zipped, f: file name follows.
 
-* **tar  czf [zipfile name] [directory to archive]** : c: create.
+* **tar  czf [zip file name] [directory to archive]** : c: create.
 * **unzip [file name]** : unzip .zip
 * **zip [zip name] [directory to zip or all ""*""]** : zip into .zip 
 
@@ -94,6 +94,7 @@
 * **ps**: current processes 
 * **nice -19** : how much resources show process grab. 
 * **kill [process number ]**: kill process
+* **[process name] &** : run process in the background
 * **sudo systemctl status apache2** : check status of apache server.
 
 
@@ -108,15 +109,45 @@
 * id [name of user]: list all groups for user
 * su [username] : switch users
 * sudo ln -s [path of script] [group to link]:symbolic link
+* sudo usermod -aG [group name] [username] : add user to group
+* sudo deluser [username] [group name] : delete user from group
 
 
 
 ##### Docker
 
 * docker run hello-world: run hello world example
+
 * docker run -it ubuntu bash : run docker container with ubuntu distro and bash 
+
 * docker ps: current running containers
+
 * docker ps -a : all running with history
+
 * docker images: list of docker images
-* docker build -t "webserver" . : nameing tag webserver
+
+* docker build -t "webserver" . : naming tag webserver
+
+  
+
+**Hashing** 
+
+$ID $SALT $HASHED_PASSWORD
+ID 1 : MD5 
+ID 5 : SHA256
+ID 6 : SHA512 
+SALT : Random value
+HASHED_VALUE = hash(algorithm, SALT, PASSWORD)
+
+
+
+**Task Schedule to run scripts** 
+
+Minutes(0-59) Hour(0-24) Day of the month (1-31) Month (1-12) Day of week (0-6 Sunday = 0) 
+
+cronetab -l : list all scheduled tasks 
+
+cronetab -e : create and select editor
+
+Example : 23 20 * * * /bin/sh /home/user...
 
