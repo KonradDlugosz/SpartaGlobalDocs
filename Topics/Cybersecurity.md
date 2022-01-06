@@ -175,3 +175,23 @@
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Containerization 
+
+1. **What is container ?** 
+   * Containerization creates abstraction at an OS level that allows individual, modular and distinct functionality of the app to run independently 
+   * Several isolated workloads - the containers - can co-exist on a machine
+   * A unit of software that is lightweight but still bundles the code, its dependencies and the configuration altogether into a single image 
+   * Where can run ? 
+     * On bare metal servers 
+     * On top hypervisors 
+     * In cloud infrastructure
+2. **Benefits** 
+   * Useful in developing, deploying and testing modern distributed apps and microservices that can operate in isolated execution environments on same host machines.
+   * Developers don't need to write application code into different VMs operating different app components to retrieve compute, storage and networking resources.  Containers are not heavy on resources as VM. 
+   * A complete application component can be executed in its entirety within its isolated environment without affecting other app components or software. 
+   * no conflicts with libraries during execution. 
+3. **Security** 
+   * Less secure than VM as they share kernel with host OS.
+   * Container share the same kernel with other containers 
+4. **Docker**
+   * An open platform for developing, shipping and running applications.
+   * Enables separation of an applications from the infrastructure. 
