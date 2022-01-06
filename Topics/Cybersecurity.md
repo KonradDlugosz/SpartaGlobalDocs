@@ -2,15 +2,17 @@
 <div align="center">
     <h1 align= "center">Cyber Security</h1>
 </div>
-
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#Introduction-to-Cyber-Security">Introduction to Cyber Security</a></li>
+      <li><a href="#virtualization">Virtualization</a></li>
+      <li><a href="#Containerization ">Containerization </a></li>
   </ol>
 </details>
 
-### Introduction:
+
+### Introduction to Cyber Security:
 
 1. **What is cybersecurity ?** 
 
@@ -134,6 +136,42 @@
 
     Moving to the left in cybersecurity means that you should apply cybersecurity from beginning of product development. 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+### Virtualization
+
+1. **Why use virtualization?** 
+
+   * Variation between the development and production environment. 
+   * Development environment is where application is developed. 
+   * Production environment is where service is set it up. 
+   * Each might have diffrenet OS, updates etc.
+   * Solutions:
+     *  Virtualization: Vagrant (used in development environment)
+     * Containerization: Docker (used in production environment)
+
+2. **What is virtualization ?**
+
+   * Is the process of separating a software from the hardware. 
+   * A virtual server means that server exists in virtual form physical.
+   * Hypervisor (Virtual machine monitor VMM) works as interface between the VMs and the host. eg. VirtualBox , vmware 
+
+3. **Hypervisor types**
+
+   1. Type 1 Native/bare-metal : hardware > Hypervisors >> OS | APP 
+   2. Type 2 Hosted : hardware > operating system > Hypervisors >> OS | APP
+
+4. **Why use vagrant ?** 
+
+   Configure virtual machine so that is exactly same across multiple devices so that all developers in a company have the same VM containing all apps and configuration. 
+
+   * A tool for building a managing virtual machine environments in single workflow.
+   * it lowers development setup time
+   * can mirror production environments on the developer machine 
+   * vagrant will create a virtual environment for each production environment. 
+   * vagrant is not hypervisor, its an automation tool that can be combined with hypervisor
+   * vagrant calls the hypervisor as a provider
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### Containerization 
