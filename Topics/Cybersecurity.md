@@ -184,14 +184,44 @@
      * On bare metal servers 
      * On top hypervisors 
      * In cloud infrastructure
+   
 2. **Benefits** 
+   
    * Useful in developing, deploying and testing modern distributed apps and microservices that can operate in isolated execution environments on same host machines.
    * Developers don't need to write application code into different VMs operating different app components to retrieve compute, storage and networking resources.  Containers are not heavy on resources as VM. 
    * A complete application component can be executed in its entirety within its isolated environment without affecting other app components or software. 
    * no conflicts with libraries during execution. 
+   
 3. **Security** 
    * Less secure than VM as they share kernel with host OS.
-   * Container share the same kernel with other containers 
-4. **Docker**
+   * Container share the same **kernel** with other containers 
+   
+4. **What is container engine ?** 
+
+   A container engine is a piece of software that accepts user requests, including command line options, pulls images, and from the end user's perspective runs the container. There are many container engines, including docker, RKT, CRI-O, and LXD.
+
+5. **Docker**
+
    * An open platform for developing, shipping and running applications.
+
    * Enables separation of an applications from the infrastructure. 
+
+   * Components:
+
+     * Server : Docker Server >
+     * REST API >
+     * Client : Docker command line interface 
+
+   * Container: 
+
+     * Running instance of image
+     * A **Docker container** is a virtualized run-time environment where users can isolate applications from the underlying system. These containers are compact, portable units in which you can start up an application quickly and easily.
+
+   * Image: 
+
+     * In java case: Class with source code
+     * A **Docker image** is an immutable (unchangeable) file that contains the source code, libraries, dependencies, tools, and other files needed for an application to run.
+
+     
+
+<p align="right">(<a href="#top">back to top</a>)</p>
