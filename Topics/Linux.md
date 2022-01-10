@@ -1,4 +1,4 @@
-## Linux
+### Linux
 
 ##### Linux Distribution families
 
@@ -31,7 +31,7 @@
 
   
 
-## Commands
+#### Commands
 
 ##### Basic: 
 
@@ -124,8 +124,6 @@
 
 * `docker images`: list of docker images
 
-* `docker build -t "webserver" .` : naming tag webserver
-
 * `docker run -it ubuntu bash` : run docker container with ubuntu distro and bash command
 
 * `docker start [container ID or name ]` : start container already created
@@ -133,6 +131,24 @@
 * `docker exec -it [container ID or name ] [command]` : interact with running container
 
 * `docker stats` : display stats for containers live
+
+* `docker inspect [name of container]` : show details about container, can be used with `grep` to filter results 
+
+* `docker container prune` : delete all containers
+
+Build image: 
+
+* `docker build -t [image name] [path of Dockerfile]` : create image
+
+Run container 
+
+* `docker run [image name]` : run container
+
+Push image 
+
+* `docker push [user name]/[name of image]:[version tag]` : add image to docker hub repo
+
+
 
 **Hashing password in shadow file**  
 

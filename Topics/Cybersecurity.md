@@ -8,8 +8,10 @@
     <li><a href="#Introduction-to-Cyber-Security">Introduction to Cyber Security</a></li>
       <li><a href="#virtualization">Virtualization</a></li>
       <li><a href="#Containerization ">Containerization </a></li>
+      <li><a href="#Cryptography ">Cryptography</a></li>
   </ol>
 </details>
+
 
 
 ### Introduction to Cyber Security:
@@ -145,7 +147,7 @@
    * Variation between the development and production environment. 
    * Development environment is where application is developed. 
    * Production environment is where service is set it up. 
-   * Each might have diffrenet OS, updates etc.
+   * Each might have different OS, updates etc.
    * Solutions:
      *  Virtualization: Vagrant (used in development environment)
      * Containerization: Docker (used in production environment)
@@ -203,25 +205,83 @@
 5. **Docker**
 
    * An open platform for developing, shipping and running applications.
-
    * Enables separation of an applications from the infrastructure. 
-
    * Components:
 
      * Server : Docker Server >
      * REST API >
      * Client : Docker command line interface 
-
    * Container: 
-
+   
      * Running instance of image
      * A **Docker container** is a virtualized run-time environment where users can isolate applications from the underlying system. These containers are compact, portable units in which you can start up an application quickly and easily.
-
    * Image: 
-
+   
      * In java case: Class with source code
      * A **Docker image** is an immutable (unchangeable) file that contains the source code, libraries, dependencies, tools, and other files needed for an application to run.
+   * Create image: 
 
+     * Put all files of app into app folder
+     * create Dockerfile 
+       * FROM
+       * COPY
+       * RUN mvn clean package : run when image creating
+       * ENTRYPOINT [Array of commands eg: `"mvn", "spring-boot:run"`] : run when container created
      
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Cryptography 
+
+1. **Introduction**
+
+   1. Encryption: transform original data into unrecognizable form
+   2. Decryption: transform from unrecognizable to readable format.
+
+2. **Ciphers** 
+
+   Algorithm that consists of series of well defined step that can be followed as procedure when encrypting and decrypting: 
+
+   * Substitution cipher: Change characters with other characters. Shift alphabet by number of 3 or n.
+     * Can be decrypted by using frequency analysis  
+     * or simply guessed by generating all the keys 
+   * Transposition cipher 
+     * letters are simply rearranged
+     * key is number of lines you are using
+
+3. **Encryption Classes**
+
+   1. **Asymmetric Encryption** – Different key to encrypt and decrypt data. 
+
+      Common algorithms: 
+
+      * Diffie-Hellman(DH) - 512, 1024 ,2048, 3072 or 4096
+      * Digital Signature Standard (DSS) - 512 to 1024
+      * RSA encryption algorithms - 512 to 2048
+      * EIGamal - 512 to 1024
+      * Elliptical curve techniques - smaller keys
+
+   2. **Symmetric Encryption** - Same key to encrypt and decrypt date. 
+
+      Types of algorithms: 
+
+      * Block ciphers: send in blocks of 64 bits or 128 bits ..
+      * Stream ciphers: send bit by bit
+
+      Common algorithms: 
+
+      * Data Encryption Standard 
+      * Triple Data Encryption Standard
+      * Advanced Encryption Standard (AES)
+      * Software-Optimized Encryption Algorithm (SEAL)
+
+   3. **Hashing** - one way function
+
+      * Used to verify and ensure data integrity 
+      * can also be used to verify authentication
+
+   4. **Password Salting** 
+
+      * Salt is a unique value that can be added to the end of the password to create a different hash value. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
