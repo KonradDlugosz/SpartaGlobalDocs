@@ -57,6 +57,7 @@
    3. Grey Hat Hackers - violate laws or typical ethical standards, but no malicious intent. 
 
 5. **Testing**
+   
    1. White box testing : All information on the system.
    2. Black box testing : No information on the system. 
    3. Grey box testing : Some information. eg network design. 
@@ -69,6 +70,7 @@
    5. Risk : the intersection of assets, threats and vulnerabilities. 
    
 7. **Causes of Vulnerabilities**
+   
    1. Design and development errors 
    2. Poor system configuration 
    3. Human errors
@@ -79,7 +81,7 @@
    8. Management : incorrect management could miss some important aspects of the systems. Delay to manage security can cause vulnerability,
    9. Lack of training to staff 
    10. Communication : Mobile users need to use secure network. For example VPN to connect to organization network.
-
+   
 8. **Cyber Attacks**
 
    1. Un-targeted cyber attacks : phishing attacks which can be targeted for millions of people. 
@@ -253,6 +255,16 @@
 
    1. **Asymmetric Encryption** – Different key to encrypt and decrypt data. 
 
+      **Private key :** should be kept secret
+
+      **Public key :** can be shared to others
+   
+      Both keys can be use to encrypt and decrypt information but it gives other functionlaities: 
+   
+      * Encrypt using public key :  only decrypt by private key :  used for confidentiality
+
+      * Encrypt using private key :  only decrypt by public key : used for authentication and non-repudiation
+
       Common algorithms: 
 
       * Diffie-Hellman(DH) - 512, 1024 ,2048, 3072 or 4096
@@ -260,28 +272,99 @@
       * RSA encryption algorithms - 512 to 2048
       * EIGamal - 512 to 1024
       * Elliptical curve techniques - smaller keys
-
+   
    2. **Symmetric Encryption** - Same key to encrypt and decrypt date. 
-
+   
       Types of algorithms: 
 
       * Block ciphers: send in blocks of 64 bits or 128 bits ..
       * Stream ciphers: send bit by bit
-
+   
       Common algorithms: 
 
       * Data Encryption Standard 
       * Triple Data Encryption Standard
       * Advanced Encryption Standard (AES)
       * Software-Optimized Encryption Algorithm (SEAL)
-
-   3. **Hashing** - one way function
-
-      * Used to verify and ensure data integrity 
+   
+   3. **Hashing** - one way function - not encryption
+   
+      * Used to verify and ensure **data integrity** 
       * can also be used to verify authentication
-
+      * output is fixed size
+      * Hash message authentication code (HMAC) - used secret key with data to hash function
+      * Hashing password in shadow file : 
+        * $ID $SALT $HASHED_PASSWORD
+          ID 1 : MD5 
+          ID 5 : SHA256
+          ID 6 : SHA512 
+          SALT : Random value
+          HASHED_VALUE = hash(algorithm, SALT, PASSWORD)
+   
    4. **Password Salting** 
-
-      * Salt is a unique value that can be added to the end of the password to create a different hash value. 
+   
+      * Salt is a unique value that can be added to the end of the password to create a different hash value.
+      
+   5. **Integrity : Asymmetric Algorithms and Hashing**
+   
+      * plain text + bob's Public key > Encryption Algorithm > Encrypted text : 
+   
+        *no integrity as anyone has bob's public key*
+   
+      * hashed message + Alice's Private key > Encryption Algorithm > Encrypted hash: 
+   
+        *anyone can decrypt the message and check if the hash is the same as in the message*
+   
+        
+   
+   6. **Public key Infrastructure - Using Digital Signatures**
+   
+      Digital signatures are a mathematical technique used to provide authenticity, integrity and non-repudiation. 
+   
+      * *Properties* : 
+   
+        * Authentic : provides proof that signer and no one else signed the document. 
+        * Unalterable : after is signed, it cannot be altered. 
+        * Not Reusable : the signature cannot be transferred between documents. 
+        * Non-repudiated : the signed document is considered to be the same as a physical document. 
+   
+      * *Standards* : 
+   
+        * Digital signature algorithm (DSA)
+        * Rivest-Shamir Adleman Algorithm (RSA)
+        * Elliptic curve digital signature algorithms (ECDSA)
+   
+      * *Code signing* : 
+   
+        * Commonly used to provide assurance of the authenticity and integrity and software code. 
+        * Provides assurance about the code :
+          * Authentic
+          * Not modified 
+          * Non-repudiation of the act of publishing.
+   
+      * *Digital Certificate* : 
+   
+        Its proof of ones identity, like an electronic passport that enables to securely exchange information over internet. It contains **public key**.
+   
+        * PKI Certificate < PKI Certificate Authority < Certificate Database
+        * Digital certificate is used to publish public key and it's verified. 
+        * Receiver should verify the certificate with the authority.
+        * Certificate authority hierarchical. 
+   
+      * *Certificate Revocation* : 
+   
+        * Certificate must be revoke sometimes, if private key has been compromised.
+        * Methods: 
+          * Certificate revocation list
+          * Online Certification 
+   
+      * *X.509 and Application* :
+   
+        * SSL/TLS : secure web servers use x.509v3 for website 
+        * Web browsers : use x.509v3 to implment HTTPS cilent certificates 
+        * S/MIME : User mail agents that support mail
+        * EAP-TLS : Cisco switches can use certificate to authenticates end devices connecting to LAN 
+        * IPSec 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+

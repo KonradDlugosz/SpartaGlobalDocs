@@ -148,16 +148,7 @@ Push image
 
 * `docker push [user name]/[name of image]:[version tag]` : add image to docker hub repo
 
-
-
-**Hashing password in shadow file**  
-
-* $ID $SALT $HASHED_PASSWORD
-  ID 1 : MD5 
-  ID 5 : SHA256
-  ID 6 : SHA512 
-  SALT : Random value
-  HASHED_VALUE = hash(algorithm, SALT, PASSWORD)
+  
 
 **Task Schedule to run scripts** 
 
@@ -166,3 +157,21 @@ Push image
 * `cronetab -e` : create and select editor
 * Example : `23 20 * * * /bin/sh /home/user...`
 
+
+
+**Generate Certificates and Keys**
+
+* Generate key: 
+  `openssl genrsa -out intermediate/private/plc1.example.com.key.pem 2048`
+* Change permission:
+  `chmod 400 intermediate/private/plc1.example.com.key.pem`
+* Certificate signing request 
+  `openssl req -config intermediate/openssl.cnf `
+  `-key intermediate/private/plc1.example.com.key.pem `
+  `-subj ’/CN=plc1.example.com/O=Example./C=US/ST=CA’ `
+  `-new -sha256 -out intermediate/csr/plc1.example.com.csr.pem`
+* Sign certificate 
+  `openssl ca -batch -config intermediate/openssl.cnf `
+  `-extensions server_cert -days 375 -notext -md sha256 `
+  `-in intermediate/csr/plc1.example.com.csr.pem `
+  `-out intermediate/certs/plc1.example.com.cert.pem`
