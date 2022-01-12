@@ -9,12 +9,15 @@
       <li><a href="#virtualization">Virtualization</a></li>
       <li><a href="#Containerization ">Containerization </a></li>
       <li><a href="#Cryptography ">Cryptography</a></li>
+      <li><a href="#Networking">Networking</a></li>
   </ol>
 </details>
 
 
 
-### Introduction to Cyber Security:
+
+
+### 1. Introduction to Cyber Security:
 
 1. **What is cybersecurity ?** 
 
@@ -85,7 +88,7 @@
 8. **Cyber Attacks**
 
    1. Un-targeted cyber attacks : phishing attacks which can be targeted for millions of people. 
-   2. Targeted cyber attacks : Specific attack for a company or individual. 
+   2. Targeted cyber attacks : Specific attack for a company or individual. Spear phishing 
 
 9. **Threat Actors**
 
@@ -142,7 +145,7 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Virtualization
+### 2. Virtualization
 
 1. **Why use virtualization?** 
 
@@ -178,7 +181,7 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Containerization 
+### 3. Containerization 
 
 1. **What is container ?** 
    * Containerization creates abstraction at an OS level that allows individual, modular and distinct functionality of the app to run independently 
@@ -233,7 +236,7 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Cryptography 
+### 4. Cryptography 
 
 1. **Introduction**
 
@@ -273,7 +276,7 @@
       * EIGamal - 512 to 1024
       * Elliptical curve techniques - smaller keys
    
-   2. **Symmetric Encryption** - Same key to encrypt and decrypt date. 
+   2. **Symmetric Encryption** - Same key to encrypt and decrypt data. 
    
       Types of algorithms: 
 
@@ -368,3 +371,234 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### 5. Networking
+
+1. **OSI Model (Standard Model)**
+
+   1. **Physical** : Media, signal, and binary transmission, related to hardware 
+
+   2. **Data link** : physical addressing, protocol that work with physical layer, only recognized on local network inside your own network.
+
+   3. **Network** : Path determination (routing decides to take the best path across a physical network) and logical addressing, connected on wider network like internet
+
+   4. **Transport** : End to end connections and reliability, 
+
+      * TCP(connection-oriented) slower but more reliable
+        * FTP 
+        * Web browsing
+        * Email
+      * UDP (connectionless) faster but less reliable
+        * Live streaming
+        * Online games
+        * VoIP
+      * SSL not used, TLS commonly used
+
+   5. **Session** : Interhost communication, Session establishment in TCP 
+
+   6. **Presentation** : Data representation and encryption 
+
+   7. **Application** : Network process to application, most of the time this layer contains session and presentation layer. 
+
+      Application protocols: 
+
+      * HTTP for web server (HTTPS = HTTP + SSL, TLS)
+      * SMTP, IMAP for emails
+      * FTP for file transferring 
+      * DNS convert name to IP address 
+      * SSH for remote machine
+
+2. **TCP/IP Protocol Suite vs OSI model** 
+
+   This model is used more commonly in real life. 
+
+   * Application Layer : Application, Presentation, session
+   * Transport Layer : Transport
+   * Internet Layer : Network
+   * Network Access Layer : Data link, physical
+
+3. **Encapsulation** 
+
+   * Passing down the stack. 
+   * Data > Segment > Packet > Frame > Bits
+   * Each step adds more information, encapsulates. 
+   * Once on destination, decapsulation at each step. 
+
+4. **Transport Layer TCP vs UDP** 
+
+   * FTP : TCP , used across networks
+   * TFTP : UDP, used on same network with no authentication
+   * **When to use what ?** 
+     * UDP : VoIP and DNS 
+       * Fast 
+       * Low overhead 
+       * Does not require acknowledgements 
+       * Does not resend lost data 
+       * Delivers data as it arrives
+     * TCP : SMTP/ IMAP and HTTP/HTTPS
+       * Reliable 
+       * Acknowledges data 
+       * Resends lost data 
+       * Delivers data in sequenced order
+
+5. **Port numbers**
+
+   * Used to manage multiple connections or transitions at the same time.
+   * Source port number (Client) : port number used on source machine, allows to open multiple connections at the same time. 
+   * Destination port number (Server) : port number used on destination machine
+   * Server can offer more than one services at the same time eg. 
+     * SSH service on port 22 
+     * Web service on port 80
+     * FTP on port 21
+   * Port Number Groups: 
+     * Well-knows ports : 0-1023, reserved for common or popular services
+     * Registered ports : 1,024 to 49,151
+     * Private and/or Dynamic Ports : 49,152 to 65,535, ephemeral ports, temporal port client OS assigns port numbers when connecting to a service.
+   * Well known port numbers 
+     * 20 TCP | FTP 
+     * 21 TCP | FTP 
+     * 22 TCP | SSH 
+     * 23 TCP |Telnet 
+     * 25 TCP | SMTP 
+     * 53 UDP, TCP | DNS
+     * 67 UDP | DHCP - server
+     * 68 UDP | DHCP - client
+     * 69 UDP | TFTP
+     * 80 TCP | HTTP 
+     * 110 TCP | POP3
+     * 143 TCP | IMAP
+     * 161 UDP | SNMP
+     * 443 TCP | HTTPS 
+     * 3306 TCP | MySQL
+
+6. **Positional Numeral Systems** 
+
+   * A positional (numeral) system is the system used to write/express a number. 
+
+   * Positional nation means that a digit represents different values depending on the position the digit occupies in the sequence numbers. 
+
+   * In networking we use 3 numeral systems: 
+
+     * Decimal numeral System (i.e. base 10 [0-9])
+
+       | ==                 | Thousands | Hundreds | Tens | Ones |
+       | ------------------ | --------- | -------- | ---- | ---- |
+       | Radix              | 10        | 10       | 10   | 10   |
+       | Position in Number | 3         | 2        | 1    | 0    |
+       | Calculate          | 10^3      | 10^2     | 10^1 | 10^0 |
+       | Position value     | 1000      | 100      | 10   | 1    |
+       | Actual value       | 3000      | 200      | 10   | 0    |
+
+     * Binary Numeral System (i.e. base 2 [0,1])
+
+       | Radix              | 2       | 2      | 2      | 2      | 2     | 2     | 2     | 2     |
+       | ------------------ | ------- | ------ | ------ | ------ | ----- | ----- | ----- | ----- |
+       | Position in Number | 7       | 6      | 5      | 4      | 3     | 2     | 1     | 0     |
+       | Calculate          | 2^7     | 2^6    | 2^5    | 2^4    | 2^3   | 2^2   | 2^1   | 2^0   |
+       | Position value     | **128** | **64** | **32** | **16** | **8** | **4** | **2** | **1** |
+       | 1 =                | 0       | 0      | 0      | 0      | 0     | 0     | 0     | 1     |
+       | 2 =                | 0       | 0      | 0      | 0      | 0     | 0     | 1     | 0     |
+       | 3 =                | 0       | 0      | 0      | 0      | 0     | 0     | 1     | 1     |
+       | 8 =                | 0       | 0      | 0      | 0      | 1     | 0     | 0     | 0     |
+       | 17 =               | 0       | 0      | 0      | 1      | 0     | 1     | 0     | 0     |
+       | 172 =              | 1       | 0      | 1      | 0      | 1     | 1     | 0     | 0     |
+       | 16 =               | 0       | 0      | 0      | 1      | 0     | 0     | 0     | 0     |
+       | 254 =              | 1       | 1      | 1      | 1      | 1     | 1     | 1     | 0     |
+
+     * Hexadecimal Number System (i.e base 16 [0-9 A-F]) 
+
+       | Decimal | Binary | Hexadecimal |
+       | :-----: | :----: | :---------: |
+       |    0    |  0000  |      0      |
+       |    1    |  0001  |      1      |
+       |    2    |  0010  |      2      |
+       |    3    |  0011  |      3      |
+       |    4    |  0100  |      4      |
+       |    5    |  0101  |      5      |
+       |    6    |  0110  |      6      |
+       |    7    |  0111  |      7      |
+       |    8    |  1000  |      8      |
+       |    9    |  1001  |      9      |
+       |   10    |  1010  |      A      |
+       |   11    |  1011  |      B      |
+       |   12    |  1100  |      C      |
+       |   13    |  1101  |      D      |
+       |   14    |  1110  |      E      |
+       |   15    |  1111  |      F      |
+
+7. **Network Addressing**
+
+   * IPv4 
+     * series of 1s and 0s (binary)
+     * IPv4 address consist of 32 bits, divided into 4 sections. Each octet contains 8 bits (1 byte) separated by dot. 
+     * eg. 10101100 00010000 11111110 00000001 > 172.16.254.1 IP address
+     * 0.0.0.0 : accepting from anyone 
+     * 255.255.255.255 : sending broadcast to everyone
+     * IPv4 address is made up of :
+       * A network portion 
+       * A host portion
+     * There are two systems to recognize the network portion form host portion: 
+       * Legacy Classful addressing 
+       * Classless (Subnet-Based System)
+   * Subnet Mask
+     * Is a series of 1s followed by series of 0s. 
+     * 1s represent network portion
+     * 0s represent host portion 
+     * IP and subnet mask are two separate things
+     * Class A 
+       * Network : 1.0.0.0 - 127.0.0.0 
+       * Subnet mask: 255.0.0.
+       * Network portion is first octet
+     * Class B 
+       * Network : 128.0.0.0 - 171.255.0.0 
+       * Subnet mask : 255.255.0.0
+       * Network portion: 2 octet
+     * Class C 
+       * Network : 192.168.0.0 - 223.255.255.0 
+       * Subnet mask : 255.255.255.0
+       * Network portion: 3 octet
+   * Classless Inter-Domain Routing (CIDR) 
+     * CIDR can be considered as another method to write subnet masks 
+     * CIDR value is the number of 1s in a subnet mask
+     * CIRD value is how many bits represent the network portion in an IP
+     * For example: 
+       * IP: 192.168.1.1 Mask : 255.255.255.0 -> 192.168.1.1/24
+       * IP: 172.16.1.1 Mask : 255.255.0.0 -> 172.16.1.1/16
+     * Special IPv4 Addresses: 
+       * 127.0.0.0 : 255.0.0.0 or /8 : direct traffic to itself
+       * 169.254.x.y : 255.255.0.0 or /16 : Failed to get IP address from network, automatic assign. 
+       * 172.16.0.0 - 172.31.0.0 : 255.240.0.0 or /12 : cannot be routed on the public network
+       * 192.168.0.0 - 192.168.255.0 : 255.255.0.0 or / 16 : they can be used by anyone in any network
+
+8. **Network Layer**
+
+   1. Introduction 
+      * Router connects networks together. Its a computer.
+      * Switch used to connect devices that belong to the same segment of the network. 
+   2. Getaway 
+      * Its the router interface that is connected on a network reachable from the host 
+      * Its the IP address of the NIC of the router
+      * A host uses it in case it wants to send data to another host in a different network. 
+      * It should be directly connected on the same network of its hosts
+      * A host sends the traffic to the router when destination IP address in not on its own network. 
+   3. Small Network Routing 
+   4. Directly Connected Networks 
+      * If host not in local network, send traffic to default gateway and router will check in the routing table to see if the interface network is listed. This will mean that it exists on the network and forward the traffic.
+   5. Static Routing 
+   6. Dynamic Routing
+
+9. **Zero trust security framework** 
+
+   *  “never trust, always verify.”
+   * This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
+   * It protects an organization’s workforce, workloads, and the workplace. 
+   *  Assume zero trust any time someone or something requests access to assets.
+
+10. **AAA Protocol** 
+
+   * Authentication : prove identity 
+   * Authorization : determinate what user can do
+   * Accounting : records what user does
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
