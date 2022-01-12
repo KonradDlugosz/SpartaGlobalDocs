@@ -375,13 +375,13 @@
 
 1. **OSI Model (Standard Model)**
 
-   1. **Physical** : Media, signal, and binary transmission, related to hardware 
+   1. **Physical Layer** : Media, signal, and binary transmission, related to hardware 
 
-   2. **Data link** : physical addressing, protocol that work with physical layer, only recognized on local network inside your own network.
+   2. **Data link Layer** : physical addressing, protocol that work with physical layer, only recognized on local network inside your own network.
 
-   3. **Network** : Path determination (routing decides to take the best path across a physical network) and logical addressing, connected on wider network like internet
+   3. **Network Layer** : Path determination (routing decides to take the best path across a physical network) and logical addressing, connected on wider network like internet
 
-   4. **Transport** : End to end connections and reliability, 
+   4. **Transport Layer ** : End to end connections and reliability, 
 
       * TCP(connection-oriented) slower but more reliable
         * FTP 
@@ -397,7 +397,7 @@
 
    6. **Presentation** : Data representation and encryption 
 
-   7. **Application** : Network process to application, most of the time this layer contains session and presentation layer. 
+   7. **Application Layer** : Network process to application, most of the time this layer contains session and presentation layer. 
 
       Application protocols: 
 
@@ -539,23 +539,87 @@
      * There are two systems to recognize the network portion form host portion: 
        * Legacy Classful addressing 
        * Classless (Subnet-Based System)
+     
    * Subnet Mask
      * Is a series of 1s followed by series of 0s. 
+     
      * 1s represent network portion
+     
      * 0s represent host portion 
+     
      * IP and subnet mask are two separate things
+     
      * Class A 
        * Network : 1.0.0.0 - 127.0.0.0 
+       
        * Subnet mask: 255.0.0.
+       
        * Network portion is first octet
+       
+         ```tex
+         IP Address : 19.159.39.164/8 	Subnet : 255.0.0.0
+         ------------------------------------------------------
+         Binary IP Addr : 00010011.10011111.00100111.10100100
+         Binary Subnet  : 11111111.00000000.00000000.00000000
+         				 -----Network-----.-------Host------
+         IP Network  : 19.0.0.0	
+         First Host  : 19.0.0.1
+         Last Host   : 19.255.255.254
+         Brodcasat   : 19.255.255.255
+         Next Subnet : 20.0.0.0
+         ```
+       
      * Class B 
        * Network : 128.0.0.0 - 171.255.0.0 
+       
        * Subnet mask : 255.255.0.0
+       
        * Network portion: 2 octet
+       
+         ```tex
+         IP Address : 19.159.39.164/16 	Subnet : 255.255.0.0
+         ------------------------------------------------------
+         Binary IP Addr : 00010011.10011111.00100111.10100100
+         Binary Subnet  : 11111111.11111111.00000000.00000000
+         				 -----Network-----.-------Host------
+         IP Network  : 19.159.0.0	
+         First Host  : 19.159.0.1
+         Last Host   : 19.159.255.254
+         Brodcasat   : 19.159.255.255
+         Next Subnet : 19.160.0.0
+         ```
+       
      * Class C 
        * Network : 192.168.0.0 - 223.255.255.0 
+       
        * Subnet mask : 255.255.255.0
+       
        * Network portion: 3 octet
+       
+       * ```text
+         IP Address : 19.159.39.164/24 	Subnet : 255.255.255.0
+         ------------------------------------------------------
+         Binary IP Addr : 00010011.10011111.00100111.10100100
+         Binary Subnet  : 11111111.11111111.11111111.00000000
+         				 ----------Network---------.--Host--				
+         IP Network  : 19.159.39.0	
+         First Host  : 19.159.39.1
+         Last Host   : 19.159.39.254
+         Brodcasat   : 19.159.39.255
+         Next Subnet : 19.159.40.0
+         
+         IP Address : 19.159.39.164/28 	Subnet : 255.255.255.240
+         ------------------------------------------------------
+         Binary IP Addr : 00010011.10011111.00100111.10100100
+         Binary Subnet  : 11111111.11111111.11111111.11110000
+         				 ----------Network-------------.--Host				
+         IP Network  : 19.159.39.160	
+         First Host  : 19.159.39.161
+         Last Host   : 19.159.39.174
+         Brodcasat   : 19.159.39.175
+         Next Subnet : 19.159.39.176
+         ```
+     
    * Classless Inter-Domain Routing (CIDR) 
      * CIDR can be considered as another method to write subnet masks 
      * CIDR value is the number of 1s in a subnet mask
@@ -572,7 +636,7 @@
 8. **Network Layer**
 
    1. Introduction 
-      * Router connects networks together. Its a computer.
+      * Router connects networks together, Its a computer.
       * Switch used to connect devices that belong to the same segment of the network. 
    2. Getaway 
       * Its the router interface that is connected on a network reachable from the host 
