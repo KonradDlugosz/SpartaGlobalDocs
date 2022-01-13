@@ -539,6 +539,10 @@
      * There are two systems to recognize the network portion form host portion: 
        * Legacy Classful addressing 
        * Classless (Subnet-Based System)
+     * Private IP address ranges are as follows:
+       - Class A Private IP Range: 10.0.0.0 – 10.255.255.255 
+       - Class B Private IP Range: 172.16.0.0 – 172.31.255.255
+       - Class C Private IP Range: 192.168.0.0 – 192.168.255.25
      
    * Subnet Mask
      * Is a series of 1s followed by series of 0s. 
@@ -552,11 +556,11 @@
      * Class A 
        * Network : 1.0.0.0 - 127.0.0.0 
        
-       * Subnet mask: 255.0.0.
+       * Subnet mask: 255.0.0.0
        
        * Network portion is first octet
        
-         ```tex
+         ```text
          IP Address : 19.159.39.164/8 	Subnet : 255.0.0.0
          ------------------------------------------------------
          Binary IP Addr : 00010011.10011111.00100111.10100100
@@ -567,16 +571,29 @@
          Last Host   : 19.255.255.254
          Brodcasat   : 19.255.255.255
          Next Subnet : 20.0.0.0
+         
+         
+         IP Address : 58.21.182.173/13 	Subnet : 255.248.0.0
+         ------------------------------------------------------
+         Binary IP Addr : 00111010.00010|101.10110110.10101101
+         Binary Subnet  : 11111111.11111|000.00000000.00000000
+         				 -----Network-----.-------Host------
+         IP Network  : 58.16.0.0
+         First Host  : 58.16.0.1
+         Last Host   : 58.23.255.254
+         Brodcasat   : 58.23.255.255
+         Next Subnet : 58.24.0.0
+         Class A : Public
          ```
        
      * Class B 
-       * Network : 128.0.0.0 - 171.255.0.0 
+       * Network : 128.0.0.0 - 191.255.0.0 
        
        * Subnet mask : 255.255.0.0
        
        * Network portion: 2 octet
        
-         ```tex
+         ```text
          IP Address : 19.159.39.164/16 	Subnet : 255.255.0.0
          ------------------------------------------------------
          Binary IP Addr : 00010011.10011111.00100111.10100100
@@ -587,6 +604,20 @@
          Last Host   : 19.159.255.254
          Brodcasat   : 19.159.255.255
          Next Subnet : 19.160.0.0
+         
+         
+         IP Address : 161.249.146.246/20 
+         Subnet : 255.255.240.0
+         ------------------------------------------------------
+         Binary IP Addr : 10110001.11111001.1001|0010.11110110 
+         Binary Subnet  : 11111111.11111111.1111|0000.00000000
+         
+         IP Network  : 161.249.144.0
+         First Host  : 161.249.144.1
+         Last Host   : 161.249.159.254
+         Broadcast   : 161.249.159.255
+         Next Subnet : 161.249.160.0
+         Class B: Private
          ```
        
      * Class C 
@@ -650,14 +681,56 @@
    5. Static Routing 
    6. Dynamic Routing
 
-9. **Zero trust security framework** 
+9. **Network Security**
+
+   1. Access Control List (ACL)
+      * Contains rules that grant or deny access to resource (file, server, network, printer, system, etc)
+      * ACL tells networking devices which type of traffic can access the network and which activity is allowed.
+      * In networks, ACL is usually applied on a specific interface and specific direction. 
+      * A networking device would apply and ACL on each packet as follows:
+        * Get the destination and source addresses from packet
+        * Find a rule in the ACL that matches the source and/or destination address/port
+        * If match found, check if to allow packet to pass or deny. 
+        * if no match, drop the packet immediately 
+   2. ACL - Wildcard
+      * Wildcards are the opposite of subnet mask (replace 1 with 0, 0 with 1)
+      * ACL will use the wildcard to check if the source/destination IP address matches a specific rule 
+      * 255.255.255.0 -> 0.0.0.255
+      * 255.255.128.0 -> 0.0.127.255
+   3. Firewall 
+      * Firewall is a system that enforces an access control policy between networks. 
+      * It monitors incoming and outgoing traffic
+      * Firewall prevents the exposure of sensitive hosts, resources and applications to untrusted users. 
+      * It sanitizes protocol flow, which prevents the exploitation of protocol flaws. 
+      * It blocks malicious data from servers and clients
+      * It reduces security management complexity by off-loading most of the network access control to a few firewall in the network 
+      * A misconfigured firewall can have serious consequences for the network such as single point of failure
+      * Network performance can slow down, as it has capacity of how many clients can be checked at a time. 
+      * Unauthorized traffic can be tunneled or hidden so that it appears as legitimate traffic trough the firewall. 
+   4. Firewall Policies
+      * Allow List (White List) : Drop all packets except for the once on the list.
+      * Deny List (Black List) : Allow all packets to pass except for the once on the list. 
+   5. Firewall types 
+      * Packet filtering firewall : works on Layer 3 (Network) and 4 (Transport) 
+      * Stateful firewall : works on Layer 3, 4, 5 and 7 
+        * Stateful packet inspection, analyzing packet header, inspecting packet state.
+   6. Firewall delivery method
+      1. Network based firewall 
+      2. Host based firewall 
+
+   7. Firewall zones 
+      1. Inside : Private network that should not be access by anyone unauthorized. 
+      2. Outside : Public accessing your services. 
+      3. Demilitarized : Servers separated from private network, prevents attacker from accessing all the network if one server has been breached. 
+
+10. **Zero trust security framework** 
 
    *  “never trust, always verify.”
    * This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
    * It protects an organization’s workforce, workloads, and the workplace. 
    *  Assume zero trust any time someone or something requests access to assets.
 
-10. **AAA Protocol** 
+11. **AAA Protocol** 
 
    * Authentication : prove identity 
    * Authorization : determinate what user can do

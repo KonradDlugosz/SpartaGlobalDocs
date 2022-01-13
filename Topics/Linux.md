@@ -31,9 +31,9 @@
 
   
 
-#### Commands
+### Commands
 
-##### Basic: 
+##### Basic 
 
 * `locate [filename]` : if doesn't show update index with **sudo updatedb**
 * `grep` : search plain text data set for lines that match regex. Can be used with pipeline **|** 
@@ -47,7 +47,7 @@
 *  `/etc/skal/.bashrc_aliases` : runs once terminal opened, add alias to make them public 
 *  `uname` : determine the processor architecture, the system hostname and the version of the kernel running on the system
 
-##### **Standard streams:** 
+##### Standard streams 
 
 * 0> : standard input 
 
@@ -65,9 +65,25 @@
 
 ##### Network Connectivity
 
-* `ip route show` : check network access
-* `ip addr` : show ip address
-* `ifconfig` : show ip address (easier to read)
+* `ap-get install net-tools` : get tools for networking
+* `route -n` : routing table on machine with numbers
+  * `route del default gw [IP addr of gateway]` : delete default gateway 
+  * `route add default gw [IP addr of gateway]` : add default gateway
+
+* `ip` : ip commands
+  * `ip addr`  : show ip addresses 
+  * `ip route show` : check network access
+  * `sudo ip addr add/del 172.31.1.1/255.255.0.0 dev eth0`: add or delete IP address
+  * `sudo ip addr flush dev eth0` : delete all ip address for device
+  * `sudo ip link set eth0 down` : deactivate interface
+  * `sudo ip route add/delete default via 10.0.2.2` : add or delete default gateway
+
+* `ifconfig` : show ip address (easier to read) works with interfaces
+  * `ifconfig [net name] [ip addr] netmask [netmask]`: add IP address
+  * `ifconfig eth0 del [IP Addr]` : remove IP address
+  * `ifconfig [interface name] down` : deactivate interface 
+  * `ifconfig [interface name] up` : activate interface
+
 * `netstat -i` : interfaces statistics 
 * `netstat -l` : open and listening ports 
 * `host [url]` : find dns for site name
