@@ -669,17 +669,20 @@
    1. Introduction 
       * Router connects networks together, Its a computer.
       * Switch used to connect devices that belong to the same segment of the network. 
+      
    2. Getaway 
       * Its the router interface that is connected on a network reachable from the host 
       * Its the IP address of the NIC of the router
       * A host uses it in case it wants to send data to another host in a different network. 
       * It should be directly connected on the same network of its hosts
       * A host sends the traffic to the router when destination IP address in not on its own network. 
-   3. Small Network Routing 
+      
    4. Directly Connected Networks 
       * If host not in local network, send traffic to default gateway and router will check in the routing table to see if the interface network is listed. This will mean that it exists on the network and forward the traffic.
-   5. Static Routing 
-   6. Dynamic Routing
+      
+   4. Static Routing vs Dynamic Routing
+
+      Static Routing does not use any routing protocols and algorithms, while dynamic routing uses routing protocols and complex algorithms to calculate routing operations. ... In static routing, routes not react with network changes, while in dynamic routing, routes react with network changes.
 
 9. **Network Security**
 
