@@ -212,10 +212,10 @@ Push image
 
 * Allow forwarding traffic **on firewall** that matches the rules: 
 
-  Source IP: 10.1.1.2
-  Destination IP: 10.1.2.1
-  Protocol: TCP
-  Port: 80 (HTTP)
+  ​	Source IP: 10.1.1.2
+  ​	Destination IP: 10.1.2.1
+  ​	Protocol: TCP
+  ​	Port: 80 (HTTP)
 
   * `sudo iptables -A FORWARD -p tcp --dport 80 -s 10.1.1.2 -d 10.1.2.1 -j ACCEPT`
 
