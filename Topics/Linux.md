@@ -31,7 +31,7 @@
 
   
 
-### Commands
+### Bash Commands
 
 ##### Basic 
 
@@ -47,14 +47,6 @@
 *  `/etc/skal/.bashrc_aliases` : runs once terminal opened, add alias to make them public 
 *  `uname` : determine the processor architecture, the system hostname and the version of the kernel running on the system
 
-##### Standard streams 
-
-* 0> : standard input 
-
-* 1> : standard output 
-
-* 2>  : standard error 
-
 ##### Archive 
 
 * `tar xzf [file name]` : unpack archive, x: extract, z: compress or zipped, f: file name follows.
@@ -62,6 +54,37 @@
 * `tar  czf [zip file name] [directory to archive]` : c: create.
 * `unzip [file name]` : unzip .zip
 * `zip [zip name] [directory to zip or all ""*""]` : zip into .zip 
+
+##### Standard Streams 
+
+* 0> : standard input 
+* 1> : standard output 
+* 2>  : standard error 
+
+##### Linux Scripting 
+
+* `nano [filename].sh` : create script
+* `chmod +x [filename]` : change mode to be executable
+
+##### **Task Schedule** 
+
+* Minutes(0-59) Hour(0-24) Day of the month (1-31) Month (1-12) Day of week (0-6 Sunday = 0) 
+* `cronetab -l` : list all scheduled tasks 
+* `cronetab -e` : create and select editor
+* Example : `23 20 * * * /bin/sh /home/user...`
+
+##### Users and Groups 
+
+* `/etc/passwd`: account and system data 
+* `/etc/group` : groups data
+* `who` : who logged in
+* `w` : who is doing what 
+* `last` : system logs
+* `id [name of user]`: list all groups for user
+* `su [username]` : switch users
+* `sudo ln -s [path of script] [group to link]`:symbolic link
+* `sudo usermod -aG [group name] [username]` : add user to group
+* `sudo deluser [username] [group name]` : delete user from group
 
 ##### Network Connectivity
 
@@ -93,12 +116,7 @@
 * `ssh [username]@[server ip address]` : connect to ssh server
 * ![](/images/ssh.PNG)
 
-##### Linux Scripting 
-
-* `nano [filename].sh` : create script
-* `chmod +x [filename]` : change mode to be executable
-
-##### System perfomrance metrics
+##### System Performance Metrics
 
 * `cd /proc` : system info virtual files. created dynamically with system events.
 * `maminfo` : memory Info 
@@ -112,19 +130,6 @@
 * `kill [process number ]` : kill process
 * `[process name] &` : run process in the background
 * `sudo systemctl status apache2` : check status of apache server.
-
-##### Users and Groups 
-
-* `/etc/passwd`: account and system data 
-* `/etc/group` : groups data
-* `who` : who logged in
-* `w` : who is doing what 
-* `last` : system logs
-* `id [name of user]`: list all groups for user
-* `su [username]` : switch users
-* `sudo ln -s [path of script] [group to link]`:symbolic link
-* `sudo usermod -aG [group name] [username]` : add user to group
-* `sudo deluser [username] [group name]` : delete user from group
 
 ##### Docker
 
@@ -164,18 +169,7 @@ Push image
 
 * `docker push [user name]/[name of image]:[version tag]` : add image to docker hub repo
 
-  
-
-**Task Schedule to run scripts** 
-
-* Minutes(0-59) Hour(0-24) Day of the month (1-31) Month (1-12) Day of week (0-6 Sunday = 0) 
-* `cronetab -l` : list all scheduled tasks 
-* `cronetab -e` : create and select editor
-* Example : `23 20 * * * /bin/sh /home/user...`
-
-
-
-**Generate Certificates and Keys**
+##### **Certificates and Keys**
 
 * Generate key: 
   `openssl genrsa -out intermediate/private/plc1.example.com.key.pem 2048`
@@ -191,3 +185,41 @@ Push image
   `-extensions server_cert -days 375 -notext -md sha256 `
   `-in intermediate/csr/plc1.example.com.csr.pem `
   `-out intermediate/certs/plc1.example.com.cert.pem`
+
+##### Firewall Configuration
+
+* List all rules 
+
+  * `sudo iptables -L` 
+  * `sudo iptables -S` : with specification
+  * `sudo iptables -L --line-numbers`
+
+* Drop all rules 
+
+  * `sudo iptables -F`
+  * `sudo iptables -t nat -F`
+  * `sudo iptables -X`
+
+* Delete rules eg. 2
+
+  * `sudo iptables -D FORWARD 2`
+
+* Drop all packets by default
+
+  * `sudo iptables -P FORWARD DROP`
+  * `sudo iptables -P INPUT DROP`
+  * `sudo iptables -P OUTPUT DROP`
+
+* Allow forwarding traffic **on firewall** that matches the rules: 
+
+  Source IP: 10.1.1.2
+  Destination IP: 10.1.2.1
+  Protocol: TCP
+  Port: 80 (HTTP)
+
+  * `sudo iptables -A FORWARD -p tcp --dport 80 -s 10.1.1.2 -d 10.1.2.1 -j ACCEPT`
+
+* Allow traffic that is part of connection to **pass through the firewall** 
+
+  * `sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT`
+
