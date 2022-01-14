@@ -215,20 +215,20 @@ A container engine is a piece of software that accepts user requests, including 
 
 * An open platform for developing, shipping and running applications.
 * Enables separation of an applications from the infrastructure. 
-* ###### Components:
+* Components:
 
   * Server : Docker Server >
   * REST API >
   * Client : Docker command line interface 
-* ###### Container: 
+* Container: 
 
   * Running instance of image
   * A **Docker container** is a virtualized run-time environment where users can isolate applications from the underlying system. These containers are compact, portable units in which you can start up an application quickly and easily.
-* ###### Image: 
+* Image: 
 
   * In java case: Class with source code
   * A **Docker image** is an immutable (unchangeable) file that contains the source code, libraries, dependencies, tools, and other files needed for an application to run.
-* ###### Create image: 
+* Create image: 
 
   * Put all files of app into app folder
   * create Dockerfile 
@@ -260,13 +260,13 @@ Algorithm that consists of series of well defined step that can be followed as p
 
 ##### **Asymmetric Encryption**
 
-Different key to encrypt and decrypt data. 
+Different key to encrypt and decrypt data: 
 
-**Private key :** should be kept secret
+1. **Private key :** should be kept secret
 
-**Public key :** can be shared to others
+2. **Public key :** can be shared to others
 
-Both keys can be use to encrypt and decrypt information but it gives other functionlaities: 
+Both keys can be use to encrypt and decrypt information but it gives other functionalities: 
 
 * Encrypt using public key :  only decrypt by private key :  used for confidentiality
 
@@ -330,20 +330,20 @@ one way function - not encryption
 
 Digital signatures are a mathematical technique used to provide authenticity, integrity and non-repudiation. 
 
-* ###### *Properties* : 
+* *Properties* : 
 
   * Authentic : provides proof that signer and no one else signed the document. 
   * Unalterable : after is signed, it cannot be altered. 
   * Not Reusable : the signature cannot be transferred between documents. 
   * Non-repudiated : the signed document is considered to be the same as a physical document. 
 
-* ###### *Standards* : 
+* *Standards* : 
 
   * Digital signature algorithm (DSA)
   * Rivest-Shamir Adleman Algorithm (RSA)
   * Elliptic curve digital signature algorithms (ECDSA)
 
-* ###### *Code signing* : 
+* *Code signing* : 
 
   * Commonly used to provide assurance of the authenticity and integrity and software code. 
   * Provides assurance about the code :
@@ -351,7 +351,7 @@ Digital signatures are a mathematical technique used to provide authenticity, in
     * Not modified 
     * Non-repudiation of the act of publishing.
 
-* ###### *Digital Certificate* : 
+* *Digital Certificate* : 
 
   Its proof of ones identity, like an electronic passport that enables to securely exchange information over internet. It contains **public key**.
 
@@ -360,14 +360,14 @@ Digital signatures are a mathematical technique used to provide authenticity, in
   * Receiver should verify the certificate with the authority.
   * Certificate authority hierarchical. 
 
-* ###### *Certificate Revocation* : 
+* *Certificate Revocation* : 
 
   * Certificate must be revoke sometimes, if private key has been compromised.
   * Methods: 
     * Certificate revocation list
     * Online Certification 
 
-* ###### *X.509 and Application* :
+* *X.509 and Application* :
 
   * SSL/TLS : secure web servers use x.509v3 for website 
   * Web browsers : use x.509v3 to implment HTTPS cilent certificates 
@@ -433,8 +433,7 @@ This model is used more commonly in real life.
 
 * FTP : TCP , used across networks
 * TFTP : UDP, used on same network with no authentication
-* ###### When to use what ? 
-  
+* **When to use what ?** 
   * UDP : VoIP and DNS 
     * Fast 
     * Low overhead 
@@ -534,8 +533,7 @@ This model is used more commonly in real life.
 
 ##### **Network Addressing**
 
-* ###### IPv4 
-  
+* IPv4 
   * series of 1s and 0s (binary)
   * IPv4 address consist of 32 bits, divided into 4 sections. Each octet contains 8 bits (1 byte) separated by dot. 
   * eg. 10101100 00010000 11111110 00000001 > 172.16.254.1 IP address
@@ -552,8 +550,7 @@ This model is used more commonly in real life.
     - Class B Private IP Range: 172.16.0.0 – 172.31.255.255
     - Class C Private IP Range: 192.168.0.0 – 192.168.255.25
   
-* ###### Subnet Mask
-  
+* Subnet Mask
   * Is a series of 1s followed by series of 0s. 
   
   * 1s represent network portion
@@ -660,8 +657,7 @@ This model is used more commonly in real life.
       Next Subnet : 19.159.39.176
       ```
   
-* ###### Classless Inter-Domain Routing (CIDR) 
-  
+* Classless Inter-Domain Routing (CIDR) 
   * CIDR can be considered as another method to write subnet masks 
   * CIDR value is the number of 1s in a subnet mask
   * CIRD value is how many bits represent the network portion in an IP
@@ -676,31 +672,27 @@ This model is used more commonly in real life.
 
 ##### **Network Layer**
 
-1. ###### Introduction 
-   
+1. Introduction 
    * Router connects networks together, Its a computer.
    * Switch used to connect devices that belong to the same segment of the network. 
    
-2. ###### Getaway 
-   
+2. Getaway 
    * Its the router interface that is connected on a network reachable from the host 
    * Its the IP address of the NIC of the router
    * A host uses it in case it wants to send data to another host in a different network. 
    * It should be directly connected on the same network of its hosts
    * A host sends the traffic to the router when destination IP address in not on its own network. 
    
-4. ###### Directly Connected Networks 
-   
+4. Directly Connected Networks 
    * If host not in local network, send traffic to default gateway and router will check in the routing table to see if the interface network is listed. This will mean that it exists on the network and forward the traffic.
    
-4. ###### Static Routing vs Dynamic Routing
+4. Static Routing vs Dynamic Routing
 
    Static Routing does not use any routing protocols and algorithms, while dynamic routing uses routing protocols and complex algorithms to calculate routing operations. ... In static routing, routes not react with network changes, while in dynamic routing, routes react with network changes.
 
 ##### **Network Security**
 
-1. ###### Access Control List (ACL)
-   
+1. Access Control List (ACL)
    * Contains rules that grant or deny access to resource (file, server, network, printer, system, etc)
    * ACL tells networking devices which type of traffic can access the network and which activity is allowed.
    * In networks, ACL is usually applied on a specific interface and specific direction. 
@@ -709,16 +701,12 @@ This model is used more commonly in real life.
      * Find a rule in the ACL that matches the source and/or destination address/port
      * If match found, check if to allow packet to pass or deny. 
      * if no match, drop the packet immediately 
-   
-2. ###### ACL - Wildcard
-   
+2. ACL - Wildcard
    * Wildcards are the opposite of subnet mask (replace 1 with 0, 0 with 1)
    * ACL will use the wildcard to check if the source/destination IP address matches a specific rule 
    * 255.255.255.0 -> 0.0.0.255
    * 255.255.128.0 -> 0.0.127.255
-   
-3. ###### Firewall 
-   
+3. Firewall 
    * Firewall is a system that enforces an access control policy between networks. 
    * It monitors incoming and outgoing traffic
    * Firewall prevents the exposure of sensitive hosts, resources and applications to untrusted users. 
@@ -728,31 +716,21 @@ This model is used more commonly in real life.
    * A misconfigured firewall can have serious consequences for the network such as single point of failure
    * Network performance can slow down, as it has capacity of how many clients can be checked at a time. 
    * Unauthorized traffic can be tunneled or hidden so that it appears as legitimate traffic trough the firewall. 
-   
-4. ###### Firewall IP table traffic: 
-
+4. Firewall IP table traffic: 
    * Input: traffic target is firewall 
    * Output : traffic generated by firewall its self
-   * Forward : traffic passing by firewall
-
-5. ###### Firewall Policies
-
+   * Forward : traffic passing by firewall and 
+5. Firewall Policies
    * Allow List (White List) : Drop all packets except for the once on the list.
    * Deny List (Black List) : Allow all packets to pass except for the once on the list. 
-
-6. ###### Firewall types 
-
+6. Firewall types 
    * Packet filtering firewall : works on Layer 3 (Network) and 4 (Transport) 
    * Stateful firewall : works on Layer 3, 4, 5 and 7 
      * Stateful packet inspection, analyzing packet header, inspecting packet state.
-
-7. ###### Firewall delivery method
-
+7. Firewall delivery method
    1. Network based firewall 
    2. Host based firewall 
-
-8. ###### Firewall zones 
-
+8. Firewall zones 
    1. Inside : Private network that should not be access by anyone unauthorized. 
    2. Outside : Public accessing your services. 
    3. Demilitarized : Servers separated from private network, prevents attacker from accessing all the network if one server has been breached. 
