@@ -316,7 +316,9 @@ one way function - not encryption
 
 * Salt is a unique value that can be added to the end of the password to create a different hash value.
 
-##### **Integrity : Asymmetric Algorithms and Hashing**
+##### **Integrity**
+
+Asymmetric Algorithms and Hashing:
 
 * plain text + bob's Public key > Encryption Algorithm > Encrypted text : 
 
@@ -326,7 +328,7 @@ one way function - not encryption
 
   *anyone can decrypt the message and check if the hash is the same as in the message*
 
-##### **Public key Infrastructure - Using Digital Signatures**
+##### **Public key Infrastructure**
 
 Digital signatures are a mathematical technique used to provide authenticity, integrity and non-repudiation. 
 

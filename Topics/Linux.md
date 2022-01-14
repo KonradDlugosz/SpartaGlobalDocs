@@ -219,7 +219,7 @@ Push image
 
   * `sudo iptables -A FORWARD -p tcp --dport 80 -s 10.1.1.2 -d 10.1.2.1 -j ACCEPT`
 
-* Allow traffic that is part of connection to **pass through the firewall** 
+* Allow traffic that is part of connection to **pass through the firewall**. It allows established sessions, as well as new connections that are related to established sessions to pass.
 
   * `sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT`
 
