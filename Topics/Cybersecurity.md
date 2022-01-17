@@ -795,15 +795,11 @@ Cloud computing is the on-demand availability of computer system resources, espe
 * It covers all resources of computing; storage, network etc.
 * Less responsibility of resources as its not on premises. 
 
-
-
 ##### **Benefits** 
 
 * Flexibility : deployed and access anywhere, resources can be extended or reduced, when relocating business easier to move as no resources on site. 
 * Efficiency : available in different locations. 
 * Cost : no need to buy new hardware, if need more servers can be extended for some time when needed. 
-
-
 
 ##### Risks
 
@@ -865,21 +861,23 @@ Shared responsibility model
 
 Virtualization is a technology that allows you to create multiple simulated environments or dedicated resources from a single, physical hardware system, and clouds are IT environments that abstract, pool, and share scalable resources across a network. To put it simply, virtualization is a technology, where cloud is an environment.
 
-* Virstualziation and Cloud computing are the two key buzz words 
+* Virtualization and Cloud computing are the two key buzz words 
 * The concept of Virtualization forms a base for Cloud computing
 * 
 
-[Virtualization vs Cloud computing Referance](https://www.redhat.com/en/topics/cloud-computing/cloud-vs-virtualization)
+[Virtualization vs Cloud computing Reference](https://www.redhat.com/en/topics/cloud-computing/cloud-vs-virtualization)
 
 
 
 ##### Responsibility Model
 
 1. Responsibilities that are always the provider's 
+
 2. Responsibilities that are always the customer's 
+
 3. Responsibilities that vary depending on the services
 
-
+   
 
 ##### Cloud Security Challenges 
 
@@ -911,7 +909,7 @@ Virtualization is a technology that allows you to create multiple simulated envi
 
    Need to make sure cloud provider compile with domain data laws. 
 
-
+   
 
 ##### Zero trust security framework 
 
@@ -927,12 +925,77 @@ Virtualization is a technology that allows you to create multiple simulated envi
 6. Developers to ensure that web-facing applications are properly secured, check all inputs from the users.
 7. Zero trust networks utilize micro-segmentation to make cloud network security far more granular
 
-
-
 ##### AAA Protocol 
 
 1. Authentication : prove identity 
 2. Authorization : determinate what user can do
 3. Accounting : records what user does
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### Amazon Web Services AWS
+
+##### Best Practices
+
+* Naming Convention
+
+  `groupID_projectName_username_resourceName`
+
+  For example: 
+
+  `cyber10x_calculator_konrad_server`
+
+* Always stop the instances (servers) when not in use
+
+* Delete resources when no longer needed 
+
+##### Regions & Zones
+
+* Region has multiple zones, collection of availability zones 
+* Availability zone is one or more discrete data centers with redundant power,networking and connectivity in an AWS region. 
+
+
+
+##### Elastic Compute Cloud (EC2)
+
+* EC2 provides scalable computing capacity in the AWS
+* EC2 can be used to launch as many or as few virtual servers as needed, configure security and networking and mange storage. 
+* EC2 enables you to scale up or down to handle changes in the requirements or spikes in popularity reducing your need to forecast traffic
+
+##### EC2 Components 
+
+1. **Amazon Machine Image (AMI)**
+
+   Template that contains a software, its used to create instance
+
+2. **Instance** 
+
+   Virtual server in the cloud
+
+3. **Key Pairs**
+
+   * A key pair, consisting of a private key and a public key
+   * is a set of security credential that you use to prove your identity when connecting to an instance 
+   * Amazon keeps public key and private key is used to access instance. 
+
+   
+
+##### Simple Storage Service (S3)
+
+Interface that you can use to store and retrieve any amount of data at any time and from anywhere
+
+##### S3 Components
+
+* **Bucket** 
+
+  A bucket is a container for objects stored in S3. Every object is contained in a bucket
+
+* **Object**
+
+  Object are the fundamental entitles stored in S3. Object consist of object data and metadata. An object is uniquely identified within a bucket by a key (name) and version ID
+
+* **Keys**
+
+  A key is the unique identifier for an object within a bucket. Every object in a bucket has exactly one key. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
