@@ -237,6 +237,7 @@ A container engine is a piece of software that accepts user requests, including 
     * RUN mvn clean package : run when image creating
     * ENTRYPOINT [Array of commands eg: `"mvn", "spring-boot:run"`] : run when container created
   
+* To create image with different operating system have to create image using multi arch architecture 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -736,15 +737,6 @@ This model is used more commonly in real life.
    1. Inside : Private network that should not be access by anyone unauthorized. 
    2. Outside : Public accessing your services. 
    3. Demilitarized : Servers separated from private network, prevents attacker from accessing all the network if one server has been breached. 
-9. Zero trust security framework 
-   1. “never trust, always verify.”
-      2. This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
-      3. It protects an organization’s workforce, workloads, and the workplace. 
-      4. Assume zero trust any time someone or something requests access to assets.
-10. AAA Protocol 
-   1. Authentication : prove identity 
-      2. Authorization : determinate what user can do
-      3. Accounting : records what user does
 
 ##### Network Address Translation (NAT)
 
@@ -792,10 +784,155 @@ Load Balancer
 * For example: Nginx for HTTP/s
 * Certificate used between client and proxy, as well as between proxy and server. 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### 6. Cloud
+
+##### What is Cloud Computing ? 
+
+Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user. Large clouds often have functions distributed over multiple locations, each location being a data center.
+
+* It covers all resources of computing; storage, network etc.
+* Less responsibility of resources as its not on premises. 
 
 
 
+##### **Benefits** 
+
+* Flexibility : deployed and access anywhere, resources can be extended or reduced, when relocating business easier to move as no resources on site. 
+* Efficiency : available in different locations. 
+* Cost : no need to buy new hardware, if need more servers can be extended for some time when needed. 
 
 
+
+##### Risks
+
+* **Security** 
+
+  Data lives on internet,  security still needs to be considered in order to keep data secure. 
+
+* **Data Portability** 
+
+  Being lock with provider, if you decided to change provider, your data might not be portable between services as they might be different 
+
+* **Cloud Provider Transparency**  
+
+  Can't be sure where your data is stored, it might be in different country than you live and it might have different law regarding data protection. For example in some countries government can access your data. 
+
+
+
+##### Deployment Types
+
+* **Private cloud** 
+
+  Having your own private cloud also lets you control how data is shared and stored. This is often the best option if cloud security is a concern, since you can manage data governance, ensure compliance with any regulations, and protect valuable intellectual property.
+
+* **Public cloud** 
+
+  Since public cloud services are set up as pay-per-use, there’s minimal investment to get started. They’re also easy to scale, since you can simply buy more capacity as it’s needed. Public cloud services are especially useful for workloads that may run for a short period of time—for example, a start-up that can’t afford to wait months to prove its viability can get just the right amount of compute it needs, for just as long as it needs it. Plus, your IT team won’t need to maintain the hardware. The largest cloud service providers today include Amazon Web Services, Microsoft Azure, Alibaba Cloud, Google Cloud, and IBM
+
+* **Hybrid**  
+
+  A hybrid cloud combines public cloud and private cloud environments by allowing data and applications to be shared between them. This helps businesses seamlessly scale services back and forth between their own infrastructure and the public cloud. 
+
+
+
+##### Cloud Services 
+
+Shared responsibility model
+
+* **On-premises**
+
+  Your responsibly of everything 
+
+* **IaaS (Infrastructure as a service)** 
+
+  Provides only hardware, your responsibility to maintain and configure. Provider only maintenance physical hardware. 
+
+* **PaaS (Platform as a service)**
+
+  Provider takes care of network controls, access and authorization, OS, identity. The client is responsibility of deployment, usage, access policies and content. 
+
+* **SaaS (Software as a service)**
+
+  Provider takes care most of the responsibilities but client still needs to take responsibility for access policies and data governance rights management content. 
+
+*There is no model that will provide no responsibility , client ALWAYS will have some responsibility.*
+
+
+
+##### Virtualization vs Cloud Computing 
+
+Virtualization is a technology that allows you to create multiple simulated environments or dedicated resources from a single, physical hardware system, and clouds are IT environments that abstract, pool, and share scalable resources across a network. To put it simply, virtualization is a technology, where cloud is an environment.
+
+* Virstualziation and Cloud computing are the two key buzz words 
+* The concept of Virtualization forms a base for Cloud computing
+* 
+
+[Virtualization vs Cloud computing Referance](https://www.redhat.com/en/topics/cloud-computing/cloud-vs-virtualization)
+
+
+
+##### Responsibility Model
+
+1. Responsibilities that are always the provider's 
+2. Responsibilities that are always the customer's 
+3. Responsibilities that vary depending on the services
+
+
+
+##### Cloud Security Challenges 
+
+1. **Increased Attack Surface** 
+
+   Adding more factors that can be attacked which are not under your control. For example, PaaS vulnerability of OS should be patched by provider but if they don't you will be vulnerable 
+
+2. **Lack of Visibility and Tracking** 
+
+   IaaS the provider they have full control of the infrastructure of hardware, you cant control what's happening at hardware level.
+
+   SaaS has less viability of whats happping there, 
+
+3. **Ever-Changing Workloads** 
+
+   Keep changing resources all the time
+
+4. **DevOps, DevSecOps and Automation** 
+
+5. **Granular Privilege and Key Management**
+
+   Cloud gives more privilege to user as its easier but gives more vulnerability 
+
+6. **Complex Environments**
+
+   Specially for hybrid type its hard to manage therefore it will give more security risks 
+
+7. **Cloud Compliance and Governance**
+
+   Need to make sure cloud provider compile with domain data laws. 
+
+
+
+##### Zero trust security framework 
+
+“never trust, always verify.”
+
+1. Zero trust in cloud security is not to automatically trust anyone or anything within or outside of the network - verify
+2. This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
+
+2. It protects an organization’s workforce, workloads, and the workplace. 
+3. Assume zero trust any time someone or something requests access to assets.
+4. It promotes a least privilege governance strategy
+5. Users are only given access to the resources they need to perform their duties
+6. Developers to ensure that web-facing applications are properly secured, check all inputs from the users.
+7. Zero trust networks utilize micro-segmentation to make cloud network security far more granular
+
+
+
+##### AAA Protocol 
+
+1. Authentication : prove identity 
+2. Authorization : determinate what user can do
+3. Accounting : records what user does
 
 <p align="right">(<a href="#top">back to top</a>)</p>
