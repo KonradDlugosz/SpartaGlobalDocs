@@ -736,19 +736,65 @@ This model is used more commonly in real life.
    1. Inside : Private network that should not be access by anyone unauthorized. 
    2. Outside : Public accessing your services. 
    3. Demilitarized : Servers separated from private network, prevents attacker from accessing all the network if one server has been breached. 
+9. Zero trust security framework 
+   1. “never trust, always verify.”
+      2. This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
+      3. It protects an organization’s workforce, workloads, and the workplace. 
+      4. Assume zero trust any time someone or something requests access to assets.
+10. AAA Protocol 
+   1. Authentication : prove identity 
+      2. Authorization : determinate what user can do
+      3. Accounting : records what user does
 
-1. **Zero trust security framework** 
+##### Network Address Translation (NAT)
 
-   *  “never trust, always verify.”
-   * This approach helps secure access from users, end-user devices, APIs, IoT, microservices, containers, and more.
-   * It protects an organization’s workforce, workloads, and the workplace. 
-   *  Assume zero trust any time someone or something requests access to assets.
+Problem : 
 
-11. **AAA Protocol** 
+* Not enough public IPv4 address to assign a unique address to each device connected to the internet. 
+* Private address are used within an organization or site to allow devices to communicate locally 
+* Private IPv4 cannot be route on internet
 
-   * Authentication : prove identity 
-   * Authorization : determinate what user can do
-   * Accounting : records what user does
+Solution : NAT
+
+* Allow private IPv4 address to access an resource that is outside local network.
+* NAT provides the translation of private address to public address.
+* Private IPv4 address (Internal Network) < NAT Translation > Public IPv4 Address (Internet)
+* NAT should be done on router or firewall. 
+
+Types of NAT : 
+
+* Static NAT : It uses a one to one mapping of local and global addresses. Isolating internal network from outside. 
+* Dynamic NAT : It uses a pool of public address and assigns them on a first-come, first-served basic. 
+* Port Address Translation (PAT) : also known as NAT overload, maps multiple private IPv4 address to a single public IPv4 address or few addresses.  This is used at home routers, one public IP address used by multiple devices. 
+
+##### Proxy & Load Balancer
+
+Forward Proxy 
+
+* Server to pass the request from the clients on a private/isolated network to the internet (and the responses back to the clients)
+* Caching 
+* For example: Squid for HTTP/s
+* Proxy is for protocol like HTTP, FTP, Socks, SSH etc. 
+
+Reverse Proxy 
+
+* A server to pass the HTTP/s requests from the clients on the internet to a server/multiple servers on a private/isolated network (and the responses back to the clients)
+* For example: Nginx 
+* Caching 
+* Compression
+* SSL/TLS Termination
+
+Load Balancer
+
+* A server that balances the received requests to a group of servers that do the same job (and the responses back to the client)
+* A generic concept that can be used with any protocol 
+* Can be used together with reverse proxy (for HTTP/s)
+* For example: Nginx for HTTP/s
+* Certificate used between client and proxy, as well as between proxy and server. 
+
+
+
+
 
 
 

@@ -185,6 +185,8 @@ Push image
   `-extensions server_cert -days 375 -notext -md sha256 `
   `-in intermediate/csr/plc1.example.com.csr.pem `
   `-out intermediate/certs/plc1.example.com.cert.pem`
+* Self-sign certificate :  
+* `openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365`
 
 ##### Firewall Configuration
 
@@ -223,3 +225,73 @@ Push image
 
   * `sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT`
 
+##### Proxy
+
+* install nginx 
+
+  * `sudo apt install nginx`
+
+* start nginx 
+
+  * `sudo systemctl start nginx`
+  * `sudo sysemctl enable nginx` : start with os boot
+
+* Create custom link
+
+  * `sudo nano /etc/nginx/sites-available/default`
+
+    ```nginx
+    server {
+            listen 80;
+            server_name _;
+            location / {
+                    proxy_pass http://127.0.0.1:8080;
+            }
+    }
+    ```
+
+  * load balancer :
+
+    ```nginx
+    upstream simplerest_servers {
+            server 127.0.0.1:8080;
+            server 127.0.0.1:8081;
+    }
+    server {
+            listen 80;
+            server_name _;
+            location / {
+                    proxy_set_header Host $host;
+                    proxy_pass http://simplerest_servers;
+            }
+    }
+    ```
+
+  * With certificate : 
+
+    ```nginx
+    upstream simplerest_servers {
+            server 127.0.0.1:8080;
+            server 127.0.0.1:8081;
+    }
+    
+    server {
+            listen 443 ssl;
+            server_name _;
+    
+            location / {
+                    proxy_set_header Host $host;
+                    proxy_pass http://simplerest_servers;
+            }
+    
+            ssl_certificate /home/vagrant/cert/cert.pem;
+            ssl_certificate_key /home/vagrant/cert/key.pem;
+    
+    }
+    ```
+
+    
+
+* Create soft link to sites available 
+
+  * `sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default`
