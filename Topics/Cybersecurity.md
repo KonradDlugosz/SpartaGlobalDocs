@@ -998,4 +998,24 @@ Interface that you can use to store and retrieve any amount of data at any time 
 
   A key is the unique identifier for an object within a bucket. Every object in a bucket has exactly one key. 
 
+
+
+##### Virtual Private Cloud (VPC)
+
+VPC is the networking layer for Amazon EC2 and it enables you to launch AWS resources into a virtual network that you have defined
+
+**Key concepts:** 
+
+* Virtual Private Cloud (VPC) - A virtual network dedicated to your AWS account 
+* Subnet -  A range of IP addresses in your VPC 
+* In VPC you can create sub networks
+* Route table - A set of rules, called routes, that are used to determine where network traffic is directed
+* Internet gateway - A gateway that you attach to your VPC to enable communication between resources in your VPC and the internet. 
+* VPC endpoint - Enables you to privately connect your VPC to supported AWS services and VPC endpoint. 
+* CIDR block - Classless Inter-Domain Routing. An internet protocol address allocation and route aggregation methodology. 
+
+
+
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
