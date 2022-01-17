@@ -169,6 +169,10 @@ Push image
 
 * `docker push [user name]/[name of image]:[version tag]` : add image to docker hub repo
 
+Issues with docker : 
+
+* `sudo usermod -aG docker ${USER}` : restart to make effect
+
 ##### **Certificates and Keys**
 
 * Generate key: 

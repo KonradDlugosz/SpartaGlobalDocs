@@ -863,7 +863,6 @@ Virtualization is a technology that allows you to create multiple simulated envi
 
 * Virtualization and Cloud computing are the two key buzz words 
 * The concept of Virtualization forms a base for Cloud computing
-* 
 
 [Virtualization vs Cloud computing Reference](https://www.redhat.com/en/topics/cloud-computing/cloud-vs-virtualization)
 
@@ -1013,6 +1012,49 @@ VPC is the networking layer for Amazon EC2 and it enables you to launch AWS reso
 * Internet gateway - A gateway that you attach to your VPC to enable communication between resources in your VPC and the internet. 
 * VPC endpoint - Enables you to privately connect your VPC to supported AWS services and VPC endpoint. 
 * CIDR block - Classless Inter-Domain Routing. An internet protocol address allocation and route aggregation methodology. 
+
+
+
+##### Security Group
+
+* A security group acts as a virtual firewall for your EC2 instances of control 
+* Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance 
+* When your launch an instance you can specify one or more security groups 
+* If you don't specify a security group, EC2 uses the default group
+* All rules from all security groups associated with an instance will be evaluated 
+* Security groups are **stateful** 
+* Protects instance
+
+
+
+##### Network Access Control List (NACL)
+
+* A firewall that works at the network level 
+* Its used to control (block/allow) the traffic to the entire subnet
+* It compares the packets to the rules in order until one matches
+* NACLs are **stateless**
+* A rule to allow the response should be added 
+* Ephemeral ports should be taken into consideration 
+* Protects subnet
+
+
+
+##### Guide for AWS 
+
+1. Create VPC 
+2. Create Subnets of VPC
+3. Create Internet gateways for VPC
+4. Create routing table which might contain internet gateway 
+5. Create Security group for instance
+6. Create Network ACL for subnet
+   1. Consider all the in and out traffic and what ports are used to access instance 
+7. Create AMI instance
+   1. Link to VPC network
+   2. Link subnet for that instance as well as 
+   3. Link enable Auto-assign public IP
+   4. Add tag 
+   5. Add Security group for that instance
+8. Check if it works by vagrant ssh and than ssh onto the instance. 
 
 
 
