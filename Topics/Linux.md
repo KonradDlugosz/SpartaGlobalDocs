@@ -173,6 +173,10 @@ Issues with docker :
 
 * `sudo usermod -aG docker ${USER}` : restart to make effect
 
+Docker pass file as parameter for container 
+
+* `docker run -p 8080:8080 --mount type=bind,source=$(pwd)/application.properties,target=/application.properties oabuoun/sakilarestapi`
+
 ##### **Certificates and Keys**
 
 * Generate key: 
@@ -299,3 +303,13 @@ Issues with docker :
 * Create soft link to sites available 
 
   * `sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default`
+
+
+
+##### SSH 
+
+Forward shh key, share on the session that was created
+
+* `eval 'ssh-agent'` : start ssh agent
+* `ssh-add [key name]` : add key to session
+* `ssh -A [destination IP]` : share key in session

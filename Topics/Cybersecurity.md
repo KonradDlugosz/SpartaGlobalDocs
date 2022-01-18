@@ -1039,7 +1039,7 @@ VPC is the networking layer for Amazon EC2 and it enables you to launch AWS reso
 
 
 
-##### Guide for AWS 
+##### Guide for AWS  
 
 1. Create VPC 
 2. Create Subnets of VPC
@@ -1056,8 +1056,34 @@ VPC is the networking layer for Amazon EC2 and it enables you to launch AWS reso
    5. Add Security group for that instance
 8. Check if it works by vagrant ssh and than ssh onto the instance. 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### 2-Tier Infrastructure 
+
+A two-tier architecture is a software architecture in which a presentation layer or interface runs on a client, **and a data layer or data structure gets stored on a server**. Separating these two components into different locations represents a two-tier architecture, as opposed to a single-tier architecture.
 
 
 
+##### Bastion Server
+
+* Server that is used to access and connect server that is not accessible on the internet. 
+* A bastion host is a fortified host standing guard as the first line of defense.
+* It ensures that your servers are protected against any intruders
+* A bridge between a public network and resources on the priivate network 
+* A user on the public network can connect to a bastion server, from the bastion server it can connect to private resources 
+* It should be built to be as secure as possible 
+* Example: SSH server can be accessed from the internet
+
+##### Benefits of Bastion Host 
+
+* Logging, Who accessed what , when and what did they do ? 
+* Protection against port scanning
+* Hardening one place only. Zero day exploits.
+* Prevent rogue SSH access by an additional layer
+* Slow down attackers 
+
+
+
+ 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
