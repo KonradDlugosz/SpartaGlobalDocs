@@ -6,12 +6,15 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#1. Introduction-to-Cyber-Security">Introduction to Cyber Security</a></li>
-      <li><a href="#2. Virtualization">Virtualization</a></li>
-      <li><a href="#3. Containerization ">Containerization </a></li>
-      <li><a href="#4. Cryptography ">Cryptography</a></li>
-      <li><a href="#5. Networking">Networking</a></li>
+      <li><a href="#2.-Virtualization">Virtualization</a></li>
+      <li><a href="#3.-Containerization ">Containerization </a></li>
+      <li><a href="#4.-Cryptography ">Cryptography</a></li>
+      <li><a href="#5.-Networking">Networking</a></li>
+      <li><a href="#6.-Cloud">Cloud</a></li>
+      <li><a href="#7.-DevOps">DevOps</a></li>
   </ol>
 </details>
+
 
 
 
@@ -1082,8 +1085,155 @@ A two-tier architecture is a software architecture in which a presentation layer
 * Prevent rogue SSH access by an additional layer
 * Slow down attackers 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### 7. DevOps
+
+##### Before DevOps
+
+* Software development , System engineering and Quality assurance are separated teams.
+* Wall Team : the space is between reparenting confusion, misalignment and stress 
+* Manual deployments 
+* Difficult environment to work with 
 
 
- 
+
+##### Infrastructure evolution 
+
+* On-Premises 9% software licenses
+  * Customization and implementation 
+  * Hardware 
+  * IT personaell 
+  * Maintenance 
+  * Training
+* Cloud Computing 68 % subscription fee 
+  * Training
+* Difficult to manage hybrid infrastructure and different cloud integration 
+
+
+
+##### Application Design Pattern
+
+* The Monolith
+
+  * The Shop Team :
+
+    Frontend
+
+    Backend
+
+    Database 
+
+* Front & Back
+
+  * Frontend Team :
+
+    Frontend
+
+  * Backend/DevOps Team :
+
+    Backend 
+
+    Database
+
+* Microservices
+
+  * Frontend Team
+
+    * Frontend
+
+  * Aggregation Layer :
+
+    * Product service 
+    * Reco service 
+    * Basket service 
+    * Payment services 
+
+    Backend 
+
+    Database
+
+
+
+##### What is DevOps 
+
+Idea of brining Developers and testers with IT operations. Automation to make deployment faster. 
+
+**Definition** :
+
+* A set of practices intended to reduce the time between committing a change to a system and the change being placed into normal production, while ensuring high quality 
+*  A set of practices - many way of doing something
+* Goal : Moving changes from development to production with shorter time and higher quality 
+
+**Practical Definition** : 
+
+* A collobaertaion of Dev and Ops 
+* A **culture** which promotes collaboration between development and operations team to deploy code to production faster in an automated and repeatable way 
+* A practice of development and operation engineers taking part together in the while services lifecycle 
+* An approach thought which superiors quality software can be developed quickly and with more reliability 
+
+
+
+##### CAMS Model 
+
+* Culture : change environment of how work is done, working with other teams. 
+* Automation : anything that needs to be done more than twice should be automated. 
+* Measurements : how to monitor and track performance of work 
+* Sharing : plain-free envoirment 
+
+
+
+##### Challenges
+
+The four pillars :
+
+* Ease of use : if tools is too complicated, it will not be used 
+
+* Flexibility : be flexible in learning to use new tools and products to improve efficiency and performance 
+
+* Robustness : developers should be in charge and responsible for code and testers should be in charge of testing. DevOps should make sure that the whole process is running as whole. 
+
+* Cost : do all the pillars considering all the costs.
+
+  
+
+##### Principles
+
+1. Customer-Centric action : achieve customer goals
+2. End-To-End Responsibility : Ensure everything is running and safe. 
+3. Continuous Improvement : test new tools and use new versions etc. keep improving infrastructure 
+4. Automated everything 
+5. Work as one team : DevOps runs as one team. 
+6. Monitor and test everything : ensure servers are running in other regions
+
+
+
+##### Lifecycle 
+
+Infinity lifecycle 
+
+* Plan  > Code  > Build  > Test  > Release  > Deploy  > Operate  > Monitor ... 
+* Go back to planning...
+
+Stages : 
+
+1. Continuous Development : keep developing new features. 
+2. Continuous Testing : test new features as they are released. 
+3. Continuous Integration : always integrate new code and releases, committing changes to system. 
+4. Continuous Delivery/Deployment
+5. Continuous Monitoring. 
+
+
+
+##### Tasks of DevOps Engineers 
+
+* Sysadmin - Linux 
+* Deploy Virtualization 
+* Hands on experience in networking and storage 
+* Coding to create infrastructure automatically 
+* Soft skills 
+* Understand the automation tools 
+* knowledge of Testing 
+* Security aspects of the IT organization 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

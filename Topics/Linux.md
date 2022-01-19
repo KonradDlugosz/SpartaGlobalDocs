@@ -313,3 +313,23 @@ Forward shh key, share on the session that was created
 * `eval 'ssh-agent'` : start ssh agent
 * `ssh-add [key name]` : add key to session
 * `ssh -A [destination IP]` : share key in session
+
+Secure copy file 
+
+* `scp application.properties ubuntu@54.170.152.163:/home/ubuntu`
+
+
+
+##### MySQL 
+
+Install client 
+
+* `sudo apt install mysql-client-core-8.0`
+
+Connect to server
+
+* `mysql --host=[IP address] --user=root --password=root`
+
+Run script on MySQL
+
+* `source [source of script]` eg: `source /sakila-data.sql`
