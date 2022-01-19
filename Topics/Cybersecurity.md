@@ -1236,4 +1236,42 @@ Stages :
 * knowledge of Testing 
 * Security aspects of the IT organization 
 
+ 
+
+##### Continuous Integration
+
+Definition : 
+
+* CI is the pratice of merging all developers working copies to a shared mainline several times a day
+
+Stages :
+
+* Development
+
+* Testing
+
+* **Integration**
+
+  
+
+##### Continuous Delivery/Deployment 
+
+Definition : 
+
+* Continuous Delivery (CD) is a software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably realsed at any time when realsing teh software, doing so **manually** 
+
+* Continuous Deploment (CDE) is a software engeering approach in which software functionalites are deliveered frequently trought **automated** deployments 
+
+  
+
+##### CI/CD Pipeline 
+
+* Code > 
+
+* Commit, Related Code > 
+
+* CI Pipeline [Build, unit tests, integration tests] > 
+
+* CD Pipeline [Review, staging, production]
+
 <p align="right">(<a href="#top">back to top</a>)</p>

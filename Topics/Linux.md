@@ -31,7 +31,7 @@
 
   
 
-### Bash Commands
+### Commands
 
 ##### Basic 
 
@@ -333,3 +333,40 @@ Connect to server
 Run script on MySQL
 
 * `source [source of script]` eg: `source /sakila-data.sql`
+
+
+
+##### Terraform
+
+The purpose of infrastructure as code is **to enable developers or operations teams to automatically manage, monitor and provision resources**, rather than manually configure discrete hardware devices and operating systems. Infrastructure as code is sometimes referred to as programmable or software-defined infrastructure.
+
+1. Create directory for infrastructure. 
+2. Create file .tf
+   1. Add provider with region
+3. Initialize project 
+   * `terraform init` 
+4. In .tf file 
+   * Configure the infrastructure using resources
+
+
+
+**Commands** : 
+
+Show all commands
+
+* `terraform`
+
+Check if configuration valid 
+
+* `terraform validate`
+
+Show changes required to apply configuration provided 
+
+* `terraform plan`
+
+
+
+Environment variable for access key and secret key
+
+* `export AWS_ACCESS_KEY_ID="key"`
+* `export AWS_SECRET_ACCESS_KEY="key"`
