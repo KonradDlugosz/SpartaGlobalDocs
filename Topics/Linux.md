@@ -334,6 +334,14 @@ Run script on MySQL
 
 * `source [source of script]` eg: `source /sakila-data.sql`
 
+Access mysql server on server
+
+* `docker exec -it mysql_dbms mysql -u root -p`
+
+Change password 
+
+* `ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'new_password';`
+
 
 
 ##### Terraform
@@ -346,7 +354,15 @@ The purpose of infrastructure as code is **to enable developers or operations te
 3. Initialize project 
    * `terraform init` 
 4. In .tf file 
-   * Configure the infrastructure using resources
+   * provider 
+   * vpc
+   * internet gateway 
+   * route table
+   * subnets
+   * route table associations with subnets
+   * network acl
+   * security groups 
+   * instances
 
 
 
