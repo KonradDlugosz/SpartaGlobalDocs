@@ -1274,4 +1274,10 @@ Definition :
 
 * CD Pipeline [Review, staging, production]
 
+  
+
+##### Terraform
+
+The purpose of infrastructure as code is **to enable developers or operations teams to automatically manage, monitor and provision resources**, rather than manually configure discrete hardware devices and operating systems. Infrastructure as code is sometimes referred to as programmable or software-defined infrastructure.
+
 <p align="right">(<a href="#top">back to top</a>)</p>

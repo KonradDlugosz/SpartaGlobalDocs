@@ -346,28 +346,6 @@ Change password
 
 ##### Terraform
 
-The purpose of infrastructure as code is **to enable developers or operations teams to automatically manage, monitor and provision resources**, rather than manually configure discrete hardware devices and operating systems. Infrastructure as code is sometimes referred to as programmable or software-defined infrastructure.
-
-1. Create directory for infrastructure. 
-2. Create file .tf
-   1. Add provider with region
-3. Initialize project 
-   * `terraform init` 
-4. In .tf file 
-   * provider 
-   * vpc
-   * internet gateway 
-   * route table
-   * subnets
-   * route table associations with subnets
-   * network acl
-   * security groups 
-   * instances
-
-
-
-**Commands** : 
-
 Show all commands
 
 * `terraform`
@@ -382,7 +360,48 @@ Show changes required to apply configuration provided
 
 
 
-Environment variable for access key and secret key
+**Create infrastructure using Terraform** :
 
-* `export AWS_ACCESS_KEY_ID="key"`
-* `export AWS_SECRET_ACCESS_KEY="key"`
+1. Create directory for infrastructure. 
+
+2. Create file .tf
+   1. Add provider with region
+   
+3. Initialize project 
+   * `terraform init` 
+   
+4. In .tf file 
+   * provider 
+   * vpc
+   * internet gateway 
+   * route table
+   * subnets
+   * route table associations with subnets
+   * network acl
+   * security groups 
+   * instances
+   
+5. Store key 4 methods :
+
+   1. Store it in .tf file 
+
+   2. Store it in environment viable 
+
+      Environment variable for access key and secret key
+
+      * `export AWS_ACCESS_KEY_ID="key"`
+      * `export AWS_SECRET_ACCESS_KEY="key"`
+
+   3. Store it in aws - not secure as it's not encrypted 
+
+   4. Best choice, store it in aws-vault
+
+      * `aws-vault add [name]`
+
+      Run terraform with aws-vault
+
+      * `aws-vault exec [name] -- terraform plan`
+
+
+
+
