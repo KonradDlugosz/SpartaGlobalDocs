@@ -358,9 +358,13 @@ Show changes required to apply configuration provided
 
 * `terraform plan`
 
+Destroy only one resource 
+
+* `terraform destroy -target="aws_instane.java10x_sakila_konrad_app_tf"`
 
 
-**Create infrastructure using Terraform** :
+
+**Create infrastructure as code using Terraform** :
 
 1. Create directory for infrastructure. 
 
@@ -373,6 +377,7 @@ Show changes required to apply configuration provided
 4. In .tf file 
    * provider 
    * vpc
+   * route53_zone, if using DNS
    * internet gateway 
    * route table
    * subnets
@@ -380,6 +385,7 @@ Show changes required to apply configuration provided
    * network acl
    * security groups 
    * instances
+   * route53_record, for each instance
    
 5. Store key 4 methods :
 
@@ -404,4 +410,9 @@ Show changes required to apply configuration provided
 
 
 
+**Create configuration as code using Terraform :**
 
+1. Add to .tf file inside resource instance: 
+   1. connection including type, host, user, private key
+   2. provisioner file if using scripts 
+   3. provisioner `remote-exec` 
