@@ -1280,4 +1280,14 @@ Definition :
 
 The purpose of infrastructure as code is **to enable developers or operations teams to automatically manage, monitor and provision resources**, rather than manually configure discrete hardware devices and operating systems. Infrastructure as code is sometimes referred to as programmable or software-defined infrastructure.
 
+
+
+##### Ansible
+
+Configuration as code using anable syntax to confgiure servers
+
+Connects to server and plays playbook. 
+
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>

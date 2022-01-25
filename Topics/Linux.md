@@ -416,3 +416,103 @@ Destroy only one resource
    1. connection including type, host, user, private key
    2. provisioner file if using scripts 
    3. provisioner `remote-exec` 
+
+
+
+##### Ansible 
+
+Inventory containing IP addresses which can be configured at the same time
+
+Check default inventory : 
+
+* `ansible all -m ping -u root`
+
+Create list of servers 
+
+* `nano ansible_hosts`
+
+* ```ansible
+  [servers]
+  
+  server1 ansible_host=52.18.232.37
+  ```
+
+Example of how to write inventory
+
+* `cat /etc/ansible/hosts`
+
+List inventory of file 
+
+* `ansible-inventory -i ansible_hosts --list -y`
+
+Go trough inventory and ping servers
+
+* `ansible all -i [file of list of servers] -m ping -u [user of server, eg ubuntu]`
+
+Send command to all servers
+
+* `ansible all -i ansible_hosts -a "command to send" -u ubuntu`
+
+Create playbook 
+
+* `nano playbook.yml`
+
+Play playbook 
+
+* `ansible-playbook playbook.yml -i ansible_hosts -u ubuntu`
+* `ansible-playbook playbook.yml -i [IP address], -u ubuntu`
+
+Bypass ssh yes/no 
+
+* `export ANSIBLE_CONFIG=$(pwd)`
+
+Install docker ansible .yml 
+
+* ```yaml
+  ---
+  - hosts: all
+    become: true
+    vars_files:
+      - vars/default.yml
+  
+    tasks:
+      - name: Install aptitude using apt
+        apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+  
+      - name: Install required system packages
+        apt: name={{ item }} state=latest update_cache=yes
+        loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+  
+      - name: Add Docker GPG apt Key
+        apt_key:
+          url: https://download.docker.com/linux/ubuntu/gpg
+          state: present
+  
+      - name: Add Docker Repository
+        apt_repository:
+          repo: deb https://download.docker.com/linux/ubuntu bionic stable
+          state: present
+  
+      - name: Update apt and install docker-ce
+        apt: update_cache=yes name=docker-ce state=latest
+  
+      - name: Install Docker Module for Python
+        pip:
+          name: docker
+  
+      - name: Pull default Docker image
+        docker_image:
+          name: "{{ default_container_image }}"
+          source: pull
+  
+      # Creates the number of containers defined by the variable create_containers, using values from vars file
+      - name: Create default containers
+        docker_container:
+          name: "{{ default_container_name }}{{ item }}"
+          image: "{{ default_container_image }}"
+          command: "{{ default_container_command }}"
+          state: present
+        with_sequence: count={{ create_containers }}
+  ```
+
+  
