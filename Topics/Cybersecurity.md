@@ -1290,4 +1290,72 @@ Connects to server and plays playbook.
 
 
 
+##### Jenkins
+
+Its a pipline as code. 
+
+Instructions: 
+
+```text
+vagrant@ubuntu2004:~$ cd cyber/tools/
+vagrant@ubuntu2004:~/cyber/tools$ cd jenkins/
+vagrant@ubuntu2004:~/cyber/tools/jenkins$ nano docker-compose.yml
+vagrant@ubuntu2004:~/cyber/tools/jenkins$ docker-compose pull
+docker-compose up
+
+
+
+in between the 6 lines of stars, copy the generated password.
+db024c9d8d1f48e081746e6c04df408d for example...
+
+
+
+IN BROWSER:
+
+
+
+open browser and go to: localhost:8080
+Paste password
+install suggested plugins
+Create account
+
+
+
+Manage Jenkins
+Manage Credentials
+Jenkins Global
+Add Credentials
+
+
+
+Username & PW:
+Username: docker username
+ID: dockher_hub
+PW: docker pw
+
+
+
+These credentials can be gotten from the jenkinsfile:
+REGISTRY CREDENTIALS = docker_hub
+
+
+
+New Item: Pipeline
+Name: Aypk-IO-Project
+Go down to pipeline script
+clickdown pipeline script from scm
+SCM: GIT
+Repo URL: Github URL
+Branch Specifier: */main
+Script Path: Jenkinsfile (this file should be in the root of the path)
+
+
+
+Build Image
+
+
+```
+
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
