@@ -19,6 +19,6 @@
 |  3   | [Object Oriented Programming (OOP)](/Topics/OOP.md) |
 |  4   | [REST APIs](/Topics/REST%20APIs.md)                 |
 |  5   | [Additional topics](/Topics/Additional%20Topics.md) |
-|  6   | [Cybersecurity](/Topics/Cybersecurity.md)           |
+|  6   | [DevOps](/Topics/DevOps.md)                         |
 |  7   | [Linux](/Topics/Linux.md)                           |
 
