@@ -1360,3 +1360,265 @@ Build Image
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### 8. Pentesting 
+
+##### Definition
+
+* Method for gaining assurance in the security of an IT system
+* By attempting to breach some or all of the system's security 
+* Using the same tools and techniques as an adversary might 
+
+##### Characteristics
+
+* PenTesters can be internal employees or 3rd party penetration testers
+* Third party penetraction tests should be performed by qualified and expericnced staff only
+* Penetration tests cannot be entirely procedural, an exhaustive set of test cases cannot be drawn up
+* The quality of a penetration test is closely linked to the abilitites of the penetration testers involved.  
+* The NCSC recommends that HMG organisations use testers and companies which are part of the CHECK sheme. 
+* Non-governmetal organisations should use teams qualified under one of theses certification schemes: CREST, triger scheme 
+
+##### Objectives
+
+* Vulnerability identification in bespoke or niche software 
+* Scenario driven testing aimed at identifying vulnerabilites
+* Scenario driven testing of detection and response capability
+
+##### Scope
+
+* A well-sciped penetration test can give confidence: 
+  * that the products and security controls tested have been configured in accordance with good pratice
+  * that there are no common or publicly known vulnerabilites
+
+##### Results 
+
+* Typically, penetration tests are used to identify the level of technical risk emanating from software and hardware vunlnerabilites
+* What techniques are used 
+* What targets are allowed 
+* How much knowladge of the system is given to the testers beforehand
+* How much knowladge of the test is given to system administrators can vary within the same test regime. 
+* A penetration test can only validate that your organisation's IT systems are not vulnerable to known issues *on the day of the test*
+
+##### Expiry 
+
+* Its not uncommon for a year or more to elapse between penetration tests. 
+* Vulnerabilites could exist for long periods of time without you knowing about them if this is your only means of validating secuirty
+* So, the results of your pentesting might be valid for a year or maybe just a day, there is no garatuee
+
+##### Startup point
+
+1. External Netowkr Penetration Test: An external netowrk penetration test is typically what most people think of when talking about pen testing. 
+   * Bypassing firewalls(eg. Config, Stateful)
+   * Router testing
+   * IPS/IDS evasion 
+   * DNS footpriting
+   * Open port scanning and testing
+   * SSH attacks
+   * Proxy servers
+   * Netowrk vulnerabiltites
+   * Email
+2. Internal Network Penetratin Test: An internal penetration test, by contrast, simulates either: 
+   * the actions a hacker might take once access has been gained to a network 
+   * or disgruntled employee with access that he or she is looking to escalate
+
+##### Methods/Target
+
+1. Physical Penetration Testing
+   * Will attempt to gain access to the facility through: 
+     * RFID & Door Entry Systems
+     * Lock-picking 
+     * Personnel or vendor impersonation
+     * Motion sensors
+   * Often, physical pen test is performed with some form of social engineering
+2. Social Enineering Penetration Testing
+3. Web Application Penetration Testing
+   * It looks: 
+     * for any secuirty issues that might have arisen as a result of: 
+       * Insecure deveopment
+       * design
+       * coding
+     * to identify potential vulnerablitites in: 
+       * websites 
+       * webapplicaitons
+       * CRM 
+       * external and internally developed programmes
+4. Client Side Penetration Testing
+   * To pinpoint security threasts that emerge locally
+   * For example, there could be a flaw in software application running on the user's workstation which a hacker can easily exploit
+   * A prgram or an application like Putty, Git clients etc. 
+5. Cloud Penetration Testing
+   * Public cloud services have become increasinglt popular for compute, networking and storage
+   * This makes it a prime target for hackers
+   * Complexites in handling cloud security and legal obstacles 
+   * Hand-off or shared responisbilty approach to security
+   * May need to notify the cloud provider your intent to carry out the test 
+   * Some of the common testing aress for cloud services: 
+     * Compute secuity 
+     * Application and API access 
+     * Database and storage acess 
+     * Encryption 
+     * VMs and unpatched Operating System
+     * SSH a RDP remote administration
+     * Poorly used firewalls 
+     * Poorly used passwords
+
+##### Blidness Level
+
+1. Targeted (Blindless) Pen Testing
+2. Blind Pen Testing 
+   * no information about enterpice
+3. Double Blind Pen Testing
+   * no information about enterprice and team not aware of pen tester
+   * checks response from blue team
+
+##### Phases
+
+1. Pre-Engagement Interactions 
+   * planning and the preperation 
+   * agree with enterprice what you are going to do
+2. Reconnaissance
+   * information gathering 
+3. Scanning
+4. Threat Modelling
+5. Exploitaion
+6. Foothold Installation 
+7. Analysis and Reporting
+8. Clean Up and Remediation
+
+
+
+#### Reconnaissance & Footprinting
+
+Footpriting is the process of collecting as much information as possible about the target system to find ways to penetrate into the system.
+
+Footpriting helps to: 
+
+1. Know Security Posture
+2. Reduce Attack Area
+3. Identify vulnerabilites 
+4. Draw Network map
+
+##### OSINT Source
+
+Surface web 4% 
+
+* Google, Yahho, Bing,
+* public access
+
+Deep weeb 
+
+* interent information that is not indexed using search engine
+* academic databases, medical records, financial records, legal docuemtns, etc
+
+Dark web
+
+* TOR
+* Political prtest
+* Drug trafficking and other illegal activites
+
+##### OSINT Use Cases
+
+* The public civilian for basic knowledge, business, and public opinions
+* Goverments for any national threat analysis and services 
+* Cybersecurity professional for: 
+  * Cyber defence
+  * Pentesters
+  * Security analysts 
+
+##### OSINT Tools
+
+OSINT tools can be categorised(-ish) under: 
+
+* Domain and IP search
+* Exposed data on the enterprice website 
+* Exposed data already on the internet
+* Hidden data in files 
+* Connected devices search
+
+##### WHOIS tool
+
+* Domain info 
+  1. Who is - https://www.who.is
+  2. Domain Tools - https://whois.domaintools.com/
+  3. ICANN Lookup - https://lookup.icann.org/
+  4. WHOIS Search/Lookup - https://main.whoisxmlapi.com/
+  5. CentralOps - https://centralops.net/co/
+* Finding DNS information
+  * DNS recon (python script)
+  * `dnsrecon -D /usr/share/wordlists/subdomains-top1mil-5000.txt -d website.in -t brt`
+
+##### Google Hacking and Dorking 
+
+* operator_name : keyword 
+* Example : 
+  * intitle:
+  * inurl:
+  * intext:
+  * define:
+  * site:
+  * phonebook:
+  * maps:
+  * book:
+  * info:
+  * movie:
+  * weather:
+  * related:
+  * link:
+
+##### Employees
+
+* Linkedin : https://github.com/laramies/theHarvester
+* Digging up a person https://Pipl.com
+
+##### Document Search
+
+FOCA(Fingerpriting Organzation wiht Collected Archvies)
+
+https://www.elevenpaths.com/innovation-labs/tools/foca 
+
+https://github.com/ElevenPaths/FOCA
+
+Metagoofil
+
+https://gitlab.com/kalilinux/packages/metagoofil
+
+##### Shodan
+
+Shodan is a search engine designed for finding specific kinds of internet connected devices
+
+It roams the internet, attempting to connect to the devices it finds. When you connect to a device, be it by telnet, http, which underpins or using other protocol the remote devices sends you some information about itself
+
+This will usually include something about the device itself, the version of the softwaer its running and any other additional information that might have been configured 
+
+##### Website Data
+
+* Finding technologies used on a website wapplyser plugin 
+* Certificate transparacy cert.sh
+
+
+
+#### Scanning 
+
+* Scanning is part of reconnaissance phase in Kill Chain
+* Many PenTesting categorisations put it it a seprate phase
+* Scanning can be considered as footpriting
+* Separate phase as: 
+  * It consists of technical steps and most of them require actions to be taken toward the target enterpise. 
+  * It needs legal preparation to make sure that all the intended actions are legal. 
+* Scanning is : 
+  * Set of procedures
+  * for identifying live hosts, ports, and services
+  * for discoving OS and architecture of target system
+  * identifying vulnerbilites and threats in the network 
+* Network scanning is proccess of gathering infomation about network. 
+
+
+
+##### Passive Scanning
+
+* Silently analyses netowrk traffic (packet sniffing) to identify endpoints and traffic patterns.
+* TCPDump, Wireshark 
+* Passive scanning has some limitations: 
+  * devices or applications that never communicate
+  * infected systems intentionally distributing misinformation
+
